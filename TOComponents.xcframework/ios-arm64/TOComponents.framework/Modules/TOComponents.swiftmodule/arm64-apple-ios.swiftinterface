@@ -1,0 +1,299 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TOComponents
+import CoreGraphics
+import Foundation
+import Swift
+@_exported import TOComponents
+import UIKit
+import _Concurrency
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class TOActivityIndicator : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var color: UIKit.UIColor? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public init(text: Swift.String?)
+  @objc deinit
+}
+extension TOComponents.TOActivityIndicator {
+  @_Concurrency.MainActor(unsafe) public func startAnimating()
+  @_Concurrency.MainActor(unsafe) public func stopAnimating()
+}
+public enum TextFieldType {
+  case standard
+  case username
+  case password
+  public static func == (a: TOComponents.TextFieldType, b: TOComponents.TextFieldType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_Concurrency.MainActor(unsafe) public class TOTextField : UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func leftViewRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var placeholder: Swift.String? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public var leftIcon: UIKit.UIImage? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var isActive: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public init(textFieldType: TOComponents.TextFieldType = .standard)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct TOFilterItem {
+  public init(itemText: Swift.String)
+}
+public protocol Reusable {
+  static var reuseId: Swift.String { get }
+}
+extension TOComponents.Reusable {
+  public static var reuseId: Swift.String {
+    get
+  }
+}
+extension UIKit.UITableViewCell : TOComponents.Reusable {
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class TOImageView : UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public init(contentMode: UIKit.UIView.ContentMode = .scaleAspectFit)
+  @objc deinit
+}
+extension UIKit.UIView {
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func top(equalTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func top(greaterThanOrEqualTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func top(lessThanOrEqualTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leading(equalTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leading(greaterThanOrEqualTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leading(lessThanOrEqualTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottom(equalTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottom(greaterThanOrEqualTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottom(lessThanOrEqualTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailing(equalTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailing(greaterThanOrEqualTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailing(lessThanOrEqualTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(equalTo anchor: UIKit.NSLayoutDimension, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(greaterThanOrEqualTo anchor: UIKit.NSLayoutDimension, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(lessThanOrEqualTo anchor: UIKit.NSLayoutDimension, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(equalTo constant: CoreGraphics.CGFloat, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(greaterThanOrEqualTo constant: CoreGraphics.CGFloat, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(lessThanOrEqualTo constant: CoreGraphics.CGFloat, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(equalTo anchor: UIKit.NSLayoutDimension, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(greaterThanOrEqualTo anchor: UIKit.NSLayoutDimension, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(lessThanOrEqualTo anchor: UIKit.NSLayoutDimension, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(equalTo constant: CoreGraphics.CGFloat, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(greaterThanOrEqualTo constant: CoreGraphics.CGFloat, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(lessThanOrEqualTo constant: CoreGraphics.CGFloat, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerX(equalTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerX(greaterThanOrEqualTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerX(lessThanOrEqualTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerY(equalTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerY(greaterThanOrEqualTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerY(lessThanOrEqualTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func top(equalTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func top(greaterThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func top(lessThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leading(equalTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leading(greaterThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leading(lessThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottom(equalTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottom(greaterThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottom(lessThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailing(equalTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailing(greaterThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailing(lessThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(equalTo view: UIKit.UIView, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(greaterThanOrEqualTo view: UIKit.UIView, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(lessThanOrEqualTo view: UIKit.UIView, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(equalTo view: UIKit.UIView, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(greaterThanOrEqualTo view: UIKit.UIView, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(lessThanOrEqualTo view: UIKit.UIView, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerX(equalTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerX(greaterThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerX(lessThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerY(equalTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerY(greaterThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerY(lessThanOrEqualTo view: UIKit.UIView, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func top(equalTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func top(greaterThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func top(lessThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leading(equalTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leading(greaterThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leading(lessThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottom(equalTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottom(greaterThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottom(lessThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailing(equalTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailing(greaterThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailing(lessThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(equalTo layoutGuide: UIKit.UILayoutGuide, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(greaterThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func width(lessThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(equalTo layoutGuide: UIKit.UILayoutGuide, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(greaterThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func height(lessThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerX(equalTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerX(greaterThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerX(lessThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerY(equalTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerY(greaterThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerY(lessThanOrEqualTo layoutGuide: UIKit.UILayoutGuide, constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func add(subview: UIKit.UIView) -> UIKit.UIView
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func fill(top topAnchor: UIKit.NSLayoutYAxisAnchor, leading leadingAnchor: UIKit.NSLayoutXAxisAnchor, bottom bottomAnchor: UIKit.NSLayoutYAxisAnchor, trailing trailingAnchor: UIKit.NSLayoutXAxisAnchor, offsets: UIKit.UIEdgeInsets) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func fill(top: UIKit.NSLayoutYAxisAnchor, leading: UIKit.NSLayoutXAxisAnchor, bottom: UIKit.NSLayoutYAxisAnchor, trailing: UIKit.NSLayoutXAxisAnchor, offset: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func fill(inside view: UIKit.UIView, offsets: UIKit.UIEdgeInsets) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func fill(inside view: UIKit.UIView, offset: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func fill(inside layouGuide: UIKit.UILayoutGuide, offsets: UIKit.UIEdgeInsets) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func fill(inside layoutGuide: UIKit.UILayoutGuide, offset: CoreGraphics.CGFloat = 0) -> Self
+  @_Concurrency.MainActor(unsafe) public func wrap(view: UIKit.UIView, offset: CoreGraphics.CGFloat = 0, toBottom: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) public func wrap(view: UIKit.UIView, verticalOffset: CoreGraphics.CGFloat = 0, horizontalOffset: CoreGraphics.CGFloat = 0, toBottom: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) public func center(view: UIKit.UIView, factor: CoreGraphics.CGFloat = 1)
+  @_Concurrency.MainActor(unsafe) public func center(view: UIKit.UIView, with size: CoreGraphics.CGSize)
+  @_Concurrency.MainActor(unsafe) public func center(view: UIKit.UIView, heightFactor: CoreGraphics.CGFloat = 1, widthFactor: CoreGraphics.CGFloat = 1)
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func size(_ size: CoreGraphics.CGSize) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func size(square: CoreGraphics.CGFloat) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func aspect(ratio: CoreGraphics.CGFloat) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func aspect(width: CoreGraphics.CGFloat, height: CoreGraphics.CGFloat) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func square() -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func center(inside view: UIKit.UIView) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func center(inside layoutGuide: UIKit.UILayoutGuide) -> Self
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class TOFilterView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) final public var selectedIndexPath: Foundation.IndexPath {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public var items: [TOComponents.TOFilterItem] {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public var backgroundTappedCompletion: (() -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public init(items: [TOComponents.TOFilterItem])
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
+}
+extension TOComponents.TOFilterView {
+  @_Concurrency.MainActor(unsafe) final public func showView()
+  @_Concurrency.MainActor(unsafe) final public func hideView()
+}
+extension TOComponents.TOFilterView : UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+extension TOComponents.TOFilterView : UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+public enum BarButtonViewImagePosition {
+  case left(UIKit.UIImage?)
+  case right(UIKit.UIImage?)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class TOBarButtonView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) final public let iconImageView: TOComponents.TOImageView
+  @_Concurrency.MainActor(unsafe) public init(imagePosition: TOComponents.BarButtonViewImagePosition, buttonText: Swift.String, target: Any?, action: ObjectiveC.Selector?)
+  @objc deinit
+}
+extension TOComponents.TOBarButtonView {
+  @_Concurrency.MainActor(unsafe) final public func setUpViews()
+  @_Concurrency.MainActor(unsafe) final public func addIcon()
+  @_Concurrency.MainActor(unsafe) final public func addButtonLabel()
+}
+extension TOComponents.TextFieldType : Swift.Equatable {}
+extension TOComponents.TextFieldType : Swift.Hashable {}

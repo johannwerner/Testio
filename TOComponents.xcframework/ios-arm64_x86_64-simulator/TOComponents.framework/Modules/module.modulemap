@@ -1,0 +1,11 @@
+framework module TOComponents {
+  umbrella header "TOComponents.h"
+
+  export *
+  module * { export * }
+}
+
+module TOComponents.Swift {
+    header "TOComponents-Swift.h"
+    requires objc
+}

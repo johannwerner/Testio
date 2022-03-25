@@ -1,0 +1,25 @@
+/* 
+ Localizable.strings
+  Testio
+
+  Created by Johann Werner on 23.03.22.
+  
+*/
+
+"username" = "Username";
+"password" = "Password";
+"log_in" = "Log in";
+"loading_list" = "Loading List";
+"verification_failed" = "Verification Failed";
+"incorrect_password" = "Your username or password is incorrect.";
+"okay" = "OK";
+"distance_km" = "%i km";
+"filter" = "Filter";
+"by_distance" = "By Distance";
+"alphabetical" = "Alphabetical";
+"logout" = "Logout";
+"done" = "Done";
+"server" = "server";
+"distance" = "distance";
+"log_into_account" = "Log in to your account";
+"cancel" = "Cancel";
