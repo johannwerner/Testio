@@ -10,7 +10,7 @@ import RxSwift
 
 enum ServerStatus {
     case loading
-    case error
+    case error(String?)
     case success([Server])
 }
 

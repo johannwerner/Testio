@@ -3,7 +3,7 @@ import CoreGraphics
 /// Operation status enum for  LoginView.
 enum LoginStatus {
     case loading
-    case error
+    case error(String?)
     case success(TokenModel)
 }
 
@@ -11,7 +11,7 @@ enum LoginStatus {
 enum LoginViewEffect {
     case success
     case loading
-    case error
+    case error(String?)
 }
 
 /// View action enum for  LoginView.

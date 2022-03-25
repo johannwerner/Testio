@@ -24,11 +24,11 @@ extension LoginUseCase {
                     return .loading
                 case .success(let data):
                     guard let responseModel = TokenModel.parse(from: data) else {
-                        return .error
+                        return .error(nil)
                     }
                     return .success(responseModel)
-                case .error:
-                    return .error
+                case .error(let error):
+                    return .error(error.localizedDescription)
                 }
             }
     }
@@ -41,11 +41,11 @@ extension LoginUseCase {
                     return .loading
                 case .success(let data):
                     guard let responseModel = [Server].parse(from: data) else {
-                        return .error
+                        return .error(nil)
                     }
                     return .success(responseModel)
-                case .error:
-                    return .error
+                case .error(let error):
+                    return .error(error.localizedDescription)
                 }
             }
     }

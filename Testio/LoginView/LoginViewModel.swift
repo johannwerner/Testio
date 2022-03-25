@@ -45,7 +45,7 @@ extension LoginViewModel {
     }
 }
 
-// MARK: - Private functions
+// MARK: - Private
 
 private extension LoginViewModel {
     func showNextView(input: LoginInputModel) {
@@ -58,8 +58,8 @@ private extension LoginViewModel {
                 switch status {
                 case .loading:
                     self.viewEffect.accept(.loading)
-                case .error:
-                    self.viewEffect.accept(.error)
+                case .error(let error):
+                    self.viewEffect.accept(.error(error))
                 case .success(let model):
                     do {
                         UserDefaultsUtils.username = input.username ?? ""
@@ -81,8 +81,8 @@ private extension LoginViewModel {
                 switch status {
                 case .loading:
                     self.viewEffect.accept(.loading)
-                case .error:
-                    self.viewEffect.accept(.error)
+                case .error(let error):
+                    self.viewEffect.accept(.error(error))
                 case .success(let servers):
                     self.viewEffect.accept(.success)
                     self.coordinator.showServerList(

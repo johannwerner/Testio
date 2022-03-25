@@ -55,7 +55,6 @@ final class LoginViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     // MARK: - Life cycle
-    
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -78,56 +77,19 @@ final class LoginViewController: UIViewController {
         observeViewEffect()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setNotificationKeyboard()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        do {
-            if let username = UserDefaultsUtils.username {
-                let data = try KeychainProvider.getGenericPasswordFor(username: username)
-                biometricsLogin(username: username, password: data)
-            }
-        } catch {}
+        setNotificationKeyboard()
+        setUpBiometricsLogin()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         removeNotificationKeyboard()
     }
-    
-    func setNotificationKeyboard () {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow(notification:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillHide(notification:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-    
-    func removeNotificationKeyboard () {
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
 }
 
-// MARK: - Setup
+// MARK: - Private
 
 private extension  LoginViewController {
     func biometricsLogin(username: String, password: String) {
@@ -262,12 +224,12 @@ private extension  LoginViewController {
         activityIndicator.stopAnimating()
     }
     
-    func handleError() {
+    func handleError(error: String?) {
         stopLoadingAnimations()
         resetView()
         showAlert(
             title: LocalizedKeys.verificationFailed,
-            message: LocalizedKeys.incorrectPassword
+            message: error ?? LocalizedKeys.incorrectPassword
         )
     }
     
@@ -297,6 +259,43 @@ private extension  LoginViewController {
         UIView.animate(withDuration: 0.4, animations: { [weak self] in
             self?.view.layoutIfNeeded()
         })
+    }
+    
+    func setUpBiometricsLogin() {
+        do {
+            if let username = UserDefaultsUtils.username {
+                let data = try KeychainProvider.getGenericPasswordFor(username: username)
+                biometricsLogin(username: username, password: data)
+            }
+        } catch {}
+    }
+    
+    func setNotificationKeyboard () {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(notification:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(notification:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    func removeNotificationKeyboard () {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
 }
 
@@ -335,8 +334,8 @@ private extension LoginViewController {
                 self.stopLoadingAnimations()
             case .loading:
                 self.startLoadingAnimations()
-            case .error:
-                self.handleError()
+            case .error(let error):
+                self.handleError(error: error)
             }
         })
         .disposed(by: disposeBag)}
