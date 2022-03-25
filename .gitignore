@@ -1,0 +1,8 @@
+xcschememanagement.plist
+*.ipa
+*.zip
+fastlane/*.xml
+.DS_Store*
+*.xcuserstate
+**/xcuserdata/*
+Testio.xcodeproj/xcuserdata/*
