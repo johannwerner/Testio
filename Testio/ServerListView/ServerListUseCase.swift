@@ -22,7 +22,6 @@ extension ServerListUseCase {
                 case .loading:
                     return .loading
                 case .success(let data):
-                    print(data)
                     guard let servers = data as? [Server] else {
                         return .error(nil)
                     }

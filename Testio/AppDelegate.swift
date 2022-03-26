@@ -25,7 +25,7 @@ private extension AppDelegate {
         let startNavigationController = UINavigationController()
         startNavigationController.isNavigationBarHidden = true
         makeNavigationControllerMain(navigationController: startNavigationController)
-        showLogin(navigationController: startNavigationController)
+        showMain(navigationController: startNavigationController)
         return true
     }
           
@@ -36,13 +36,8 @@ private extension AppDelegate {
         window.rootViewController = navigationController
     }
           
-    func showLogin(navigationController: UINavigationController) {
-        let interactor = LoginInteractorApi()
-        let configurator = LoginConfigurator(loginInteractor: interactor)
-        let coordinator = LoginCoordinator(
-            navigationController: navigationController,
-            configurator: configurator
-        )
-        coordinator.showLogin(animated: true)
+    func showMain(navigationController: UINavigationController) {
+        let coordinator = MainCoordinator(navigationController: navigationController)
+        coordinator.showMain(animated: true)
     }
 }

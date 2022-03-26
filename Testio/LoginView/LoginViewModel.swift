@@ -67,6 +67,11 @@ private extension LoginViewModel {
                             username: input.username ?? "",
                             password: input.password ?? ""
                         )
+                        let tokenCredentials = TokenCredentials(
+                            username: input.username ?? "",
+                            token: model.token
+                        )
+                        try KeychainProvider.storeGenericToken(credentials: tokenCredentials)
                         try KeychainProvider.storeGenericPasswordFor(credentials: credentials)
                     } catch {}
                     self.getServers(input: model)
