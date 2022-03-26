@@ -26,7 +26,7 @@ final class KeychainProvider {
     static let serviceType = "biometricslogin"
     static func storeGenericPasswordFor(credentials: Credentials) throws {
         if credentials.password.isEmpty {
-            try deletPasswor(usernmae: credentials.username, serviceType: serviceType)
+            try deletPassword(username: credentials.username, serviceType: serviceType)
             return
         }
         guard let passwordData = credentials.password.data(using: .utf8) else {
@@ -109,10 +109,10 @@ final class KeychainProvider {
         }
     }
     
-    static func deletPasswor(usernmae: String, serviceType: String) throws {
+    static func deletPassword(username: String, serviceType: String) throws {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: usernmae,
+            kSecAttrAccount as String: username,
             kSecAttrService as String: serviceType
         ]
         let status = SecItemDelete(query as CFDictionary)
