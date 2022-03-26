@@ -47,13 +47,6 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - TOComponents/UIView+App.swift
 
 disabled_rules:
-  - discarded_notification_center_observer
-  - notification_center_detachment
-  - orphaned_doc_comment
-  - unused_capture_list
-  - force_cast
-  - force_unwrapping
-  - force_try
 
 line_length:
   warning: 150

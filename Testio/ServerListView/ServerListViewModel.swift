@@ -42,7 +42,7 @@ final class ServerListViewModel {
         // in case of null values from the server only show servers with values
         
         observeViewEffect()
-        fetchServers()
+        fetchServersFromCache()
     }
 }
 
@@ -98,7 +98,7 @@ private extension ServerListViewModel {
     func logout() {
         if let username = UserDefaultsUtils.username {
             do {
-                try KeychainProvider.deletPassword(
+                try KeychainProvider.deletToken(
                     username: username, serviceType:
                         KeychainProvider.serviceTypeLoginToken
                 )
@@ -107,8 +107,26 @@ private extension ServerListViewModel {
         coordinator.showLogin()
     }
     
-    func fetchServers() {
-        useCase.getServers()
+    func fetchServersFromCache() {
+        useCase.getServersFromCache()
+            .subscribe(onNext: { [unowned self] status in
+                switch status {
+                case .loading:
+                    self.viewEffect.accept(.loading)
+                case .error:
+                    self.viewEffect.accept(.error)
+                case .success(let servers):
+                    self.servers = servers
+                    self.fetchServersFromApi()
+                    self.viewEffect.accept(.success)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func fetchServersFromApi() {
+        let tokenModel = TokenModel(token: model.token)
+        useCase.getServersFromApi(input: tokenModel)
             .subscribe(onNext: { [unowned self] status in
                 switch status {
                 case .loading:

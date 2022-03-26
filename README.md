@@ -27,11 +27,14 @@ Disadvantages of this achiteture
 - difficult for new people to quickly learn it
 - lots of files
 - set up is time consuming
+- duplicate boilerplate code
+- duplicate code
 
 Advanatages
 - easy to test the use case by passing through a mock  
 - easy handling of success/loading or error state. 
 - able to hanlde mutiple network requests with ease without landing into completion block or delegate hell.  
+- no interdependencies
 
 ## Shortcomings
 
@@ -50,8 +53,8 @@ A few things I missed because of time constraints
 
 - error handling was not done well and need a better solution there. 
 - tapping on the status bar while filter view will scroll the filter view up. I decided this was a feature and not a bug.
-- Top cell divider on first row. Should ideally be removed
 - Keyboard layout is different on iPhone 8 than design
+- The requirements are not clear when to update from cache to live data and how leaving the user with a bad experience potentially. Possibly should have a update to live data button. 
 
 ## TOComponents
 

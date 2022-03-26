@@ -25,9 +25,9 @@ final class KeychainProvider {
     private init() {}
     static let serviceTypeBiometrics = "biometricslogin"
     static let serviceTypeLoginToken = "logintoken"
-    static func storeGenericPasswordFor(credentials: Credentials, serviceType: String) throws {
+    static func storeGenericTokenFor(credentials: Credentials, serviceType: String) throws {
         if credentials.token.isEmpty {
-            try deletPassword(username: credentials.username, serviceType: serviceType)
+            try deletToken(username: credentials.username, serviceType: serviceType)
             return
         }
         guard let passwordData = credentials.token.data(using: .utf8) else {
@@ -46,7 +46,7 @@ final class KeychainProvider {
         case errSecSuccess:
             break
         case errSecDuplicateItem:
-            try updateGenericPasswordFor(
+            try updateGenericTokenFor(
                 credentials: credentials,
                 serviceType: serviceType
                 )
@@ -55,7 +55,7 @@ final class KeychainProvider {
         }
     }
     
-    static func getGenericPasswordFor(username: String, serviceType: String) throws -> String {
+    static func getGenericTokenFor(username: String, serviceType: String) throws -> String {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: username,
@@ -88,7 +88,7 @@ final class KeychainProvider {
         return value
     }
     
-    static func updateGenericPasswordFor(
+    static func updateGenericTokenFor(
         credentials: Credentials,
         serviceType: String
     ) throws {
@@ -112,7 +112,7 @@ final class KeychainProvider {
         }
     }
     
-    static func deletPassword(username: String, serviceType: String) throws {
+    static func deletToken(username: String, serviceType: String) throws {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: username,

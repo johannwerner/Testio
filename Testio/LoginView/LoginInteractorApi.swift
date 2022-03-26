@@ -24,7 +24,7 @@ extension LoginInteractorApi {
         RxAlamofire
             .requestJSON(
                 .get,
-                serverUrl,
+                AppConstants.serverUrl,
                 headers: input.headers
             )
             .flatMap { _, json -> Observable<Any> in
@@ -37,9 +37,5 @@ extension LoginInteractorApi {
 private extension LoginInteractorApi {
     var loginUrl: String {
         "https://playground.nordsec.com/v1/tokens"
-    }
-    
-    var serverUrl: String {
-        "https://playground.nordsec.com/v1/servers"
     }
 }

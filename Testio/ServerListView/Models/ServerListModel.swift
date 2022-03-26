@@ -22,6 +22,7 @@ enum ServerListViewAction {
 
 struct ServerListModel {
     var servers: [Server]
+    var token: String
     var sort: ServerListSort = .distance
 }
 

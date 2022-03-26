@@ -44,8 +44,8 @@
 		93DB8EC527EF63430051A462 /* ServerPersistentModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DB8EC327EF63430051A462 /* ServerPersistentModel.xcdatamodeld */; };
 		93DB8EC727EF63F40051A462 /* ServerPersistentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB8EC627EF63F40051A462 /* ServerPersistentModel.swift */; };
 		93DB8EF527EF855A0051A462 /* CoreDataConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB8EF427EF855A0051A462 /* CoreDataConstants.swift */; };
-		93DB8EF927EF86500051A462 /* KeyChainProviderToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB8EF827EF86500051A462 /* KeyChainProviderToken.swift */; };
 		93DB8EFC27EF8B1C0051A462 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB8EFB27EF8B1C0051A462 /* MainCoordinator.swift */; };
+		93DB8EFE27EFA11D0051A462 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB8EFD27EFA11D0051A462 /* AppConstants.swift */; };
 		93FC612327EB119D00ED5BF1 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC612227EB119D00ED5BF1 /* ColorTheme.swift */; };
 		93FC612727EB166F00ED5BF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93FC612627EB166F00ED5BF1 /* Localizable.strings */; };
 		93FC623827EBA1AF00ED5BF1 /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC623727EBA1AF00ED5BF1 /* ServerModel.swift */; };
@@ -123,8 +123,8 @@
 		93DB8EC427EF63430051A462 /* ServerPersistentModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ServerPersistentModel.xcdatamodel; sourceTree = "<group>"; };
 		93DB8EC627EF63F40051A462 /* ServerPersistentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPersistentModel.swift; sourceTree = "<group>"; };
 		93DB8EF427EF855A0051A462 /* CoreDataConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConstants.swift; sourceTree = "<group>"; };
-		93DB8EF827EF86500051A462 /* KeyChainProviderToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainProviderToken.swift; sourceTree = "<group>"; };
 		93DB8EFB27EF8B1C0051A462 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		93DB8EFD27EFA11D0051A462 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		93FC612227EB119D00ED5BF1 /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		93FC612627EB166F00ED5BF1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93FC623727EBA1AF00ED5BF1 /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
@@ -172,6 +172,7 @@
 				9306F56A27EA05E6003B6CDC /* ObservableType.swift */,
 				9306F56427EA054C003B6CDC /* Async.swift */,
 				93FC612627EB166F00ED5BF1 /* Localizable.strings */,
+				93DB8EFD27EFA11D0051A462 /* AppConstants.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -293,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				935BF08827EE420F002757BE /* KeychainProvider.swift */,
-				93DB8EF827EF86500051A462 /* KeyChainProviderToken.swift */,
 			);
 			path = KeyChain;
 			sourceTree = "<group>";
@@ -484,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint --fix\n  #swiftlint\nelse\n  echo \"warning: SwiftLint not installed, install via homebrew brew install swiftlint\"\nfi\n";
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint --fix\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, install via homebrew brew install swiftlint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -509,7 +509,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93DB8EF927EF86500051A462 /* KeyChainProviderToken.swift in Sources */,
 				93982F0C27E9FFD900782E86 /* LoginInteractorApi.swift in Sources */,
 				93982F0A27E9FFD900782E86 /* LoginViewModel.swift in Sources */,
 				9306F56527EA054C003B6CDC /* Async.swift in Sources */,
@@ -521,6 +520,7 @@
 				93FC612327EB119D00ED5BF1 /* ColorTheme.swift in Sources */,
 				93982F0D27E9FFD900782E86 /* LoginUseCase.swift in Sources */,
 				9306F56B27EA05E6003B6CDC /* ObservableType.swift in Sources */,
+				93DB8EFE27EFA11D0051A462 /* AppConstants.swift in Sources */,
 				93FC624027EC5BE900ED5BF1 /* ServerListViewModel.swift in Sources */,
 				93DB8EC727EF63F40051A462 /* ServerPersistentModel.swift in Sources */,
 				93FC624627EC5E1F00ED5BF1 /* ServerListInteractor.swift in Sources */,

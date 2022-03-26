@@ -12,22 +12,15 @@ import UIKit
 class ServerPersistentModel {
     private init() {}
     static var shared = ServerPersistentModel()
-    // MARK: - Core Data stack
+    
+    var managedObjects: [NSManagedObject] = []
 
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
         let container = NSPersistentContainer(name: CoreDataConstants.persistentContainerName)
         container.loadPersistentStores(completionHandler: { _, _ in
         })
         return container
     }()
-    
-    var managedObjects: [NSManagedObject] = []
     
     func save(server: Server) {
         guard let name = server.name else {
@@ -39,12 +32,18 @@ class ServerPersistentModel {
 
         let managedContext = persistentContainer.viewContext
 
-        let entity =
-        NSEntityDescription.entity(forEntityName: CoreDataConstants.serverCache,
-                                   in: managedContext)!
+        guard let entity =
+        NSEntityDescription.entity(
+            forEntityName: CoreDataConstants.serverCache,
+            in: managedContext
+        ) else {
+            return
+        }
         
-        let server = NSManagedObject(entity: entity,
-                                     insertInto: managedContext)
+        let server = NSManagedObject(
+            entity: entity,
+            insertInto: managedContext
+        )
 
         server.setValue(name, forKeyPath: CoreDataConstants.serverName)
         server.setValue(distance, forKeyPath: CoreDataConstants.serverDistance)
@@ -56,7 +55,7 @@ class ServerPersistentModel {
     }
     
     func deleteAllServers() {
-            let context: NSManagedObjectContext = persistentContainer.viewContext
+        let context: NSManagedObjectContext = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: CoreDataConstants.serverCache)
             fetchRequest.returnsObjectsAsFaults = false
             do {
@@ -70,14 +69,11 @@ class ServerPersistentModel {
     }
     
     func getServers(completion: ([Server]) -> Void) {
-        let managedContext =
-          persistentContainer.viewContext
-
+        let managedContext = persistentContainer.viewContext
         let fetchRequest =
         NSFetchRequest<NSManagedObject>(entityName: CoreDataConstants.serverCache)
-
         do {
-          managedObjects = try managedContext.fetch(fetchRequest)
+            managedObjects = try managedContext.fetch(fetchRequest)
             var servers: [Server] = []
             for mangedObject in managedObjects {
                 let name = mangedObject.value(forKey: CoreDataConstants.serverName) as? String
@@ -87,5 +83,5 @@ class ServerPersistentModel {
             }
             completion(servers)
         } catch {}
-      }
+    }
 }

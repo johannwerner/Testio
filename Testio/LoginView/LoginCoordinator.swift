@@ -40,12 +40,13 @@ extension  LoginCoordinator {
 // MARK: - Navigation OUT
 
 extension  LoginCoordinator {
-    func showServerList(servers: [Server], animated: Bool) {
+    func showServerList(servers: [Server], token: String, animated: Bool) {
         let interactor = ServerListInteractorApi()
         let configurator = ServerListConfigurator(serverListInteractor: interactor)
         let coordinator = ServerListCoordinator(navigationController: navigationController, configurator: configurator)
         coordinator.showServerList(
             servers: servers,
+            token: token,
             animated: true
         )
     }

@@ -15,6 +15,7 @@ final class LoginViewModel {
     
     // MARK: Tooling
     private let disposeBag = DisposeBag()
+    private var token: String?
 
     // MARK: - Life cycle
     
@@ -71,8 +72,9 @@ private extension LoginViewModel {
                             username: input.username ?? "",
                             token: model.token
                         )
-                        try KeychainProvider.storeGenericPasswordFor(credentials: tokenCredentials, serviceType: KeychainProvider.serviceTypeLoginToken)
-                        try KeychainProvider.storeGenericPasswordFor(credentials: credentials, serviceType: KeychainProvider.serviceTypeBiometrics)
+                        self.token = model.token
+                        try KeychainProvider.storeGenericTokenFor(credentials: tokenCredentials, serviceType: KeychainProvider.serviceTypeLoginToken)
+                        try KeychainProvider.storeGenericTokenFor(credentials: credentials, serviceType: KeychainProvider.serviceTypeBiometrics)
                     } catch {}
                     self.getServers(input: model)
                 }
@@ -92,6 +94,7 @@ private extension LoginViewModel {
                     self.viewEffect.accept(.success)
                     self.coordinator.showServerList(
                         servers: servers,
+                        token: token ?? "",
                         animated: true
                     )
                 }

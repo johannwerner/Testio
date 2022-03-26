@@ -1,4 +1,5 @@
 import RxSwift
 protocol ServerListInteractor {
-    func getServers() -> Observable<Async<Any>>
+    func getServersFromCache() -> Observable<Async<Any>>
+    func getServersFromApi(input: TokenModel) -> Observable<Async<Any>>
 }

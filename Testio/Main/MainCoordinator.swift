@@ -28,9 +28,9 @@ extension  MainCoordinator {
     func showMain(animated: Bool) {
         do {
             if let username = UserDefaultsUtils.username {
-                let data = try KeychainProvider.getGenericPasswordFor(username: username, serviceType: KeychainProvider.serviceTypeLoginToken)
-                if !data.isEmpty {
-                showServerList(navigationController: navigationController)
+                let token = try KeychainProvider.getGenericTokenFor(username: username, serviceType: KeychainProvider.serviceTypeLoginToken)
+                if !token.isEmpty {
+                showServerList(navigationController: navigationController, token: token)
                 } else {
                     showLogin(navigationController: navigationController)
                 }
@@ -46,14 +46,14 @@ extension  MainCoordinator {
 // MARK: - Navigation OUT
 
 extension  MainCoordinator {
-    func showServerList(navigationController: UINavigationController) {
+    func showServerList(navigationController: UINavigationController, token: String) {
         let interactor = ServerListInteractorApi()
         let configurator = ServerListConfigurator(serverListInteractor: interactor)
         let coordinator = ServerListCoordinator(
             navigationController: navigationController,
             configurator: configurator
         )
-        coordinator.showServerList(servers: [], animated: true)
+        coordinator.showServerList(servers: [], token: token, animated: true)
     }
     
     func showLogin(navigationController: UINavigationController) {
