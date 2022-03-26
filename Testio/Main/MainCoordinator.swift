@@ -28,7 +28,7 @@ extension  MainCoordinator {
     func showMain(animated: Bool) {
         do {
             if let username = UserDefaultsUtils.username {
-                let data = try KeychainProvider.getGeneriTokenFor(username: username)
+                let data = try KeychainProvider.getGenericPasswordFor(username: username, serviceType: KeychainProvider.serviceTypeLoginToken)
                 if !data.isEmpty {
                 showServerList(navigationController: navigationController)
                 } else {

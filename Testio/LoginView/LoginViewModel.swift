@@ -65,14 +65,14 @@ private extension LoginViewModel {
                         UserDefaultsUtils.username = input.username ?? ""
                         let credentials = Credentials(
                             username: input.username ?? "",
-                            password: input.password ?? ""
+                            token: input.password ?? ""
                         )
-                        let tokenCredentials = TokenCredentials(
+                        let tokenCredentials = Credentials(
                             username: input.username ?? "",
                             token: model.token
                         )
-                        try KeychainProvider.storeGenericToken(credentials: tokenCredentials)
-                        try KeychainProvider.storeGenericPasswordFor(credentials: credentials)
+                        try KeychainProvider.storeGenericPasswordFor(credentials: tokenCredentials, serviceType: KeychainProvider.serviceTypeLoginToken)
+                        try KeychainProvider.storeGenericPasswordFor(credentials: credentials, serviceType: KeychainProvider.serviceTypeBiometrics)
                     } catch {}
                     self.getServers(input: model)
                 }

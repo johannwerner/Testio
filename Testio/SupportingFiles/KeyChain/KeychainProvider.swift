@@ -18,18 +18,19 @@ enum KeychainError: Error {
 
 struct Credentials {
     var username: String
-    var password: String
+    var token: String
 }
 
 final class KeychainProvider {
     private init() {}
-    static let serviceType = "biometricslogin"
-    static func storeGenericPasswordFor(credentials: Credentials) throws {
-        if credentials.password.isEmpty {
-            try deletPassword(username: credentials.username)
+    static let serviceTypeBiometrics = "biometricslogin"
+    static let serviceTypeLoginToken = "logintoken"
+    static func storeGenericPasswordFor(credentials: Credentials, serviceType: String) throws {
+        if credentials.token.isEmpty {
+            try deletPassword(username: credentials.username, serviceType: serviceType)
             return
         }
-        guard let passwordData = credentials.password.data(using: .utf8) else {
+        guard let passwordData = credentials.token.data(using: .utf8) else {
             throw KeychainError.unexpectedError
         }
         
@@ -46,14 +47,15 @@ final class KeychainProvider {
             break
         case errSecDuplicateItem:
             try updateGenericPasswordFor(
-                credentials: credentials
+                credentials: credentials,
+                serviceType: serviceType
                 )
         default:
             throw KeychainError.unexpectedStatus(status)
         }
     }
     
-    static func getGenericPasswordFor(username: String) throws -> String {
+    static func getGenericPasswordFor(username: String, serviceType: String) throws -> String {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: username,
@@ -87,9 +89,10 @@ final class KeychainProvider {
     }
     
     static func updateGenericPasswordFor(
-        credentials: Credentials
+        credentials: Credentials,
+        serviceType: String
     ) throws {
-        guard let passwordData = credentials.password.data(using: .utf8) else {
+        guard let passwordData = credentials.token.data(using: .utf8) else {
             return
         }
         let query: [String: Any] = [
@@ -109,7 +112,7 @@ final class KeychainProvider {
         }
     }
     
-    static func deletPassword(username: String) throws {
+    static func deletPassword(username: String, serviceType: String) throws {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: username,

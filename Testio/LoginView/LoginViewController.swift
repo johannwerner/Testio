@@ -264,7 +264,7 @@ private extension  LoginViewController {
     func setUpBiometricsLogin() {
         do {
             if let username = UserDefaultsUtils.username {
-                let data = try KeychainProvider.getGenericPasswordFor(username: username)
+                let data = try KeychainProvider.getGenericPasswordFor(username: username, serviceType: KeychainProvider.serviceTypeBiometrics)
                 biometricsLogin(username: username, password: data)
             }
         } catch {}
