@@ -1,2 +1,4 @@
 import RxSwift
-protocol ServerListInteractor {}
+protocol ServerListInteractor {
+    func getServers() -> Observable<Async<Any>>
+}

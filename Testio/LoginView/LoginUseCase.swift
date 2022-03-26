@@ -40,10 +40,14 @@ extension LoginUseCase {
                 case .loading:
                     return .loading
                 case .success(let data):
-                    guard let responseModel = [Server].parse(from: data) else {
+                    guard let servers = [Server].parse(from: data) else {
                         return .error(nil)
                     }
-                    return .success(responseModel)
+                    ServerPersistentModel.shared.deleteAllServers()
+                    for server in servers {
+                        ServerPersistentModel.shared.save(server: server)
+                    }
+                    return .success(servers)
                 case .error(let error):
                     return .error(error.localizedDescription)
                 }

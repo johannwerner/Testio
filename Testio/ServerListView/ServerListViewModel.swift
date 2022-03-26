@@ -18,13 +18,13 @@ final class ServerListViewModel {
     // MARK: Tooling
     private let disposeBag = DisposeBag()
 
-    private var servers: [Server]
-    private lazy var serversByDistance: [Server] = {
+    private var servers: [Server] = []
+    private var serversByDistance: [Server] {
         servers.sorted { $0.distanceNonNil < $1.distanceNonNil }
-    }()
-    private lazy var serversByAlphabet: [Server] = {
+    }
+    private var serversByAlphabet: [Server] {
         servers.sorted { $0.nameNonNil < $1.nameNonNil }
-    }()
+    }
 
     var distanceIndexPath = IndexPath(row: 0, section: 0)
     var alphabetIndexPath = IndexPath(row: 1, section: 0)
@@ -40,8 +40,9 @@ final class ServerListViewModel {
         self.useCase = ServerListUseCase(interactor: configurator.serverListInteractor)
         self.model = model
         // in case of null values from the server only show servers with values
-        servers = model.servers.filter { $0.name != nil && $0.distance != nil }
+        
         observeViewEffect()
+        fetchServers()
     }
 }
 
@@ -96,6 +97,22 @@ extension ServerListViewModel {
 private extension ServerListViewModel {
     func logout() {
         coordinator.showLogin()
+    }
+    
+    func fetchServers() {
+        useCase.getServers()
+            .subscribe(onNext: { [unowned self] status in
+                switch status {
+                case .loading:
+                    self.viewEffect.accept(.loading)
+                case .error:
+                    self.viewEffect.accept(.error)
+                case .success(let servers):
+                    self.servers = servers
+                    self.viewEffect.accept(.success)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     func sortByDistance() {

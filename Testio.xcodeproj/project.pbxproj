@@ -41,6 +41,8 @@
 		93982F0E27E9FFD900782E86 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93982F0627E9FFD900782E86 /* LoginCoordinator.swift */; };
 		93982F0F27E9FFD900782E86 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93982F0727E9FFD900782E86 /* LoginInteractor.swift */; };
 		93D0DD8227EE60A4008CCC8C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D0DD8127EE60A4008CCC8C /* AuthenticationServices.framework */; };
+		93DB8EC527EF63430051A462 /* ServerPersistentModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DB8EC327EF63430051A462 /* ServerPersistentModel.xcdatamodeld */; };
+		93DB8EC727EF63F40051A462 /* ServerPersistentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB8EC627EF63F40051A462 /* ServerPersistentModel.swift */; };
 		93FC612327EB119D00ED5BF1 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC612227EB119D00ED5BF1 /* ColorTheme.swift */; };
 		93FC612727EB166F00ED5BF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93FC612627EB166F00ED5BF1 /* Localizable.strings */; };
 		93FC623827EBA1AF00ED5BF1 /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC623727EBA1AF00ED5BF1 /* ServerModel.swift */; };
@@ -115,6 +117,8 @@
 		93D0DD7F27EE6082008CCC8C /* Testio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Testio.entitlements; sourceTree = "<group>"; };
 		93D0DD8127EE60A4008CCC8C /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		93D0DD8327EE60FE008CCC8C /* TestioDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestioDebug.entitlements; sourceTree = "<group>"; };
+		93DB8EC427EF63430051A462 /* ServerPersistentModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ServerPersistentModel.xcdatamodel; sourceTree = "<group>"; };
+		93DB8EC627EF63F40051A462 /* ServerPersistentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPersistentModel.swift; sourceTree = "<group>"; };
 		93FC612227EB119D00ED5BF1 /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		93FC612627EB166F00ED5BF1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93FC623727EBA1AF00ED5BF1 /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		9306F56327EA0538003B6CDC /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				93DB8EC227EF63130051A462 /* CoreData */,
 				9306F56E27EA0690003B6CDC /* Foundation */,
 				93FC612227EB119D00ED5BF1 /* ColorTheme.swift */,
 				9306F56A27EA05E6003B6CDC /* ObservableType.swift */,
@@ -267,6 +272,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		93DB8EC227EF63130051A462 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				93DB8EC327EF63430051A462 /* ServerPersistentModel.xcdatamodeld */,
+				93DB8EC627EF63F40051A462 /* ServerPersistentModel.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		93FC623627EBA19E00ED5BF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,7 +345,6 @@
 				935BF06127EE020E002757BE /* Sources */,
 				935BF06227EE020E002757BE /* Frameworks */,
 				935BF06327EE020E002757BE /* Resources */,
-				935BF08E27EE5738002757BE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -350,6 +363,7 @@
 				93982EE027E9F87700782E86 /* Frameworks */,
 				93982EE127E9F87700782E86 /* Resources */,
 				935BF01227EDFF5E002757BE /* Embed Frameworks */,
+				93DB8EEB27EF67C20051A462 /* Lint */,
 			);
 			buildRules = (
 			);
@@ -429,7 +443,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		935BF08E27EE5738002757BE /* SwiftLint */ = {
+		93DB8EEB27EF67C20051A462 /* Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -438,14 +452,14 @@
 			);
 			inputPaths = (
 			);
-			name = SwiftLint;
+			name = Lint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint --fix\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, install via homebrew brew install swiftlint\"\nfi\n";
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint --fix\n  #swiftlint\nelse\n  echo \"warning: SwiftLint not installed, install via homebrew brew install swiftlint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -477,10 +491,12 @@
 				93FC624427EC5D7400ED5BF1 /* ServerListCoordinator.swift in Sources */,
 				93FC624827EC5E4600ED5BF1 /* ServerListInteractorApi.swift in Sources */,
 				93982EE727E9F87700782E86 /* AppDelegate.swift in Sources */,
+				93DB8EC527EF63430051A462 /* ServerPersistentModel.xcdatamodeld in Sources */,
 				93FC612327EB119D00ED5BF1 /* ColorTheme.swift in Sources */,
 				93982F0D27E9FFD900782E86 /* LoginUseCase.swift in Sources */,
 				9306F56B27EA05E6003B6CDC /* ObservableType.swift in Sources */,
 				93FC624027EC5BE900ED5BF1 /* ServerListViewModel.swift in Sources */,
+				93DB8EC727EF63F40051A462 /* ServerPersistentModel.swift in Sources */,
 				93FC624627EC5E1F00ED5BF1 /* ServerListInteractor.swift in Sources */,
 				935BF08D27EE47BE002757BE /* UserDefaults.swift in Sources */,
 				93FC625927EC73CD00ED5BF1 /* ServerTableViewCell.swift in Sources */,
@@ -841,6 +857,19 @@
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		93DB8EC327EF63430051A462 /* ServerPersistentModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				93DB8EC427EF63430051A462 /* ServerPersistentModel.xcdatamodel */,
+			);
+			currentVersion = 93DB8EC427EF63430051A462 /* ServerPersistentModel.xcdatamodel */;
+			path = ServerPersistentModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 93982EDB27E9F87700782E86 /* Project object */;
 }
