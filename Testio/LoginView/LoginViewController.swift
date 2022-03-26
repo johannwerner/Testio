@@ -39,6 +39,7 @@ final class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = LoginConstants.cornerRadius
         loginButton.setTitle(LocalizedKeys.login, for: .normal)
         loginButton.backgroundColor = ColorTheme.primaryInteractiveColor
+        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         return loginButton
     }()
     
@@ -50,7 +51,7 @@ final class LoginViewController: UIViewController {
             password: passwordTextField.text
         )
     }
-    
+
     // MARK: Tooling
     private let disposeBag = DisposeBag()
 
@@ -186,6 +187,10 @@ private extension  LoginViewController {
             // find out which height to use
         
         loginButton.rx.tap.subscribe(onNext: { [unowned self] _ in
+            guard self.input.isValidInput else {
+                self.handleError(error: LocalizedKeys.enterUsernamePassword)
+                return
+            }
             self.viewAction.accept(.loginButtonPressed(input: self.input))
         })
         .disposed(by: disposeBag)
@@ -234,7 +239,8 @@ private extension  LoginViewController {
     }
     
     func addTapGesture() {
-        containerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+        containerView.addGestureRecognizer(tapGesture)
     }
     
     func showAlert(title: String, message: String) {
@@ -263,8 +269,11 @@ private extension  LoginViewController {
     
     func setUpBiometricsLogin() {
         do {
-            if let username = UserDefaultsUtils.username {
-                let data = try KeychainProvider.getGenericTokenFor(username: username, serviceType: KeychainProvider.serviceTypeBiometrics)
+            if let username = UserDefaultsProvider.username {
+                let data = try KeychainProvider.getGenericTokenFor(
+                    username: username, serviceType:
+                        KeychainProvider.serviceTypeBiometrics
+                )
                 biometricsLogin(username: username, password: data)
             }
         } catch {}

@@ -14,6 +14,7 @@ enum KeychainError: Error {
     case invalidItemFormat
     case unexpectedError
     case unexpectedStatus(OSStatus)
+    case tokenNotValid
 }
 
 struct Credentials {

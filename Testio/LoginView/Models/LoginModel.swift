@@ -40,6 +40,16 @@ struct LoginInputModel {
             "password": password ?? ""
         ]
     }
+    
+    var isValidInput: Bool {
+        guard let username = username else {
+            return false
+        }
+        guard let password = password else {
+            return false
+        }
+        return !username.isEmpty && !password.isEmpty
+    }
 }
 
 struct TokenModel: Codable {

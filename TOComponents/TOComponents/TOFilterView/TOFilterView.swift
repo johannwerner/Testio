@@ -158,7 +158,10 @@ private extension TOFilterView {
     }
     
     func setUpTapGesure() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundViewTapped))
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(backgroundViewTapped)
+        )
         backgroundView.addGestureRecognizer(tapGesture)
     }
     

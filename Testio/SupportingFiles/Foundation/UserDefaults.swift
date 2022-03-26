@@ -41,7 +41,7 @@ public struct UserDefaultsProperty<X: Codable> {
     }
 }
 
-struct UserDefaultsUtils {
+struct UserDefaultsProvider {
     private init() {}
     @UserDefaultsProperty(userDefaultsKey: "username", initalValue: nil)
     public static var username: String?

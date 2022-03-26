@@ -27,16 +27,8 @@ final class MainCoordinator {
 extension  MainCoordinator {
     func showMain(animated: Bool) {
         do {
-            if let username = UserDefaultsUtils.username {
-                let token = try KeychainProvider.getGenericTokenFor(username: username, serviceType: KeychainProvider.serviceTypeLoginToken)
-                if !token.isEmpty {
-                showServerList(navigationController: navigationController, token: token)
-                } else {
-                    showLogin(navigationController: navigationController)
-                }
-            } else {
-                showLogin(navigationController: navigationController)
-            }
+            let token = try KeychainProvider.validToken(username: UserDefaultsProvider.username)
+            showServerList(navigationController: navigationController, token: token)
         } catch {
             showLogin(navigationController: navigationController)
         }
@@ -64,5 +56,21 @@ extension  MainCoordinator {
             configurator: configurator
         )
         coordinator.showLogin(animated: true)
+    }
+}
+
+private extension KeychainProvider {
+    static func validToken(username: String?) throws -> String {
+        guard let username = username else {
+            throw KeychainError.tokenNotValid
+        }
+        let token = try KeychainProvider.getGenericTokenFor(
+            username: username,
+            serviceType: KeychainProvider.serviceTypeLoginToken
+        )
+        if token.isEmpty {
+            throw KeychainError.tokenNotValid
+        }
+        return token
     }
 }

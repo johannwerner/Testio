@@ -45,7 +45,10 @@ extension ServerListCoordinator {
     func showLogin() {
         let interactor = LoginInteractorApi()
         let configurator = LoginConfigurator(loginInteractor: interactor)
-        let coordinator = LoginCoordinator(navigationController: navigationController, configurator: configurator)
+        let coordinator = LoginCoordinator(
+            navigationController: navigationController,
+            configurator: configurator
+        )
         coordinator.showLogin(animated: true)
     }
 }

@@ -4,7 +4,7 @@ import UIKit
 import TOComponents
 
 /// Server List View
-/// - Requires: `RxSwift`, `RxCocoa`
+/// - Requires: `RxSwift`, `RxCocoa`,  `UIKit`, `TOComponents`
 final class ServerListViewController: UIViewController {
     // MARK: Dependencies
     private let viewModel: ServerListViewModel
@@ -61,13 +61,13 @@ extension ServerListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ServerTableViewCell.reuseId, for: indexPath) as? ServerTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ServerTableViewCell.reuseId,
+            for: indexPath
+        ) as? ServerTableViewCell else {
             return UITableViewCell()
         }
         let server = viewModel.serverAt(indexPath: indexPath)
-        for subview in cell.subviews {
-            subview.tintColor = .clear
-        }
         cell.fill(server: server)
         return cell
     }
@@ -100,7 +100,7 @@ private extension  ServerListViewController {
     func setUpFilterButton() {
         tableView.scrollsToTop = true
         let action = UIAction(handler: { [weak self] _ in
-            self?.showFilterOptions2()
+            self?.showFilterView()
         })
         let filterButton = UIBarButtonItem(title: LocalizedKeys.filter, primaryAction: action)
         navigationItem.leftBarButtonItem = filterButton
@@ -113,21 +113,8 @@ private extension  ServerListViewController {
         let doneButton = UIBarButtonItem(title: LocalizedKeys.done, primaryAction: action)
         navigationItem.leftBarButtonItem = doneButton
     }
-    
-    @objc func showFilterOptions() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let distanceAlertAction = UIAlertAction(title: LocalizedKeys.byDistance, style: .default, handler: { [weak self]_ in
-            self?.viewAction.accept(.sortByDistancePressed)
-        })
-        let alphabeticalAlertAction = UIAlertAction(title: LocalizedKeys.alphabetical, style: .default, handler: { [weak self] _ in
-            self?.viewAction.accept(.sortByAlphabetPressed)
-        })
-        alert.addAction(distanceAlertAction)
-        alert.addAction(alphabeticalAlertAction)
-        present(alert, animated: true)
-    }
-    
-    @objc func showFilterOptions2() {
+
+    @objc func showFilterView() {
         setUpDoneButton()
         tableView.scrollsToTop = false
         let filterItemByDistance = TOFilterItem(itemText: LocalizedKeys.byDistance)
@@ -193,7 +180,7 @@ private extension ServerListViewController {
             switch effect {
             case .success:
                 tableView.reloadData()
-            case .loading: break
+            case .loading: break // Data is loaded in background
             case .error: break
             }
         })

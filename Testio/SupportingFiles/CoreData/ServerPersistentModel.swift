@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class ServerPersistentModel {
+final class ServerPersistentModel {
     private init() {}
     static var shared = ServerPersistentModel()
     

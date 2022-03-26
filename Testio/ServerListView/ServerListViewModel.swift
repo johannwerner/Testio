@@ -96,7 +96,7 @@ extension ServerListViewModel {
 
 private extension ServerListViewModel {
     func logout() {
-        if let username = UserDefaultsUtils.username {
+        if let username = UserDefaultsProvider.username {
             do {
                 try KeychainProvider.deletToken(
                     username: username, serviceType:

@@ -37,4 +37,5 @@ final class LocalizedKeys {
     static let distance = "distance".localizedString()
     static let logIntoAccount = "log_into_account".localizedString()
     static let cancel = "cancel".localizedString()
+    static let enterUsernamePassword = "enter_username_password".localizedString()
 }

@@ -62,24 +62,36 @@ private extension LoginViewModel {
                 case .error(let error):
                     self.viewEffect.accept(.error(error))
                 case .success(let model):
-                    do {
-                        UserDefaultsUtils.username = input.username ?? ""
-                        let credentials = Credentials(
-                            username: input.username ?? "",
-                            token: input.password ?? ""
-                        )
-                        let tokenCredentials = Credentials(
-                            username: input.username ?? "",
-                            token: model.token
-                        )
-                        self.token = model.token
-                        try KeychainProvider.storeGenericTokenFor(credentials: tokenCredentials, serviceType: KeychainProvider.serviceTypeLoginToken)
-                        try KeychainProvider.storeGenericTokenFor(credentials: credentials, serviceType: KeychainProvider.serviceTypeBiometrics)
-                    } catch {}
+        
                     self.getServers(input: model)
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    func handleResponse(input: LoginInputModel, model: TokenModel) {
+        UserDefaultsProvider.username = input.username ?? ""
+        let credentials = Credentials(
+            username: input.username ?? "",
+            token: input.password ?? ""
+        )
+        let tokenCredentials = Credentials(
+            username: input.username ?? "",
+            token: model.token
+        )
+        token = model.token
+        do {
+            try KeychainProvider.storeGenericTokenFor(
+                credentials: tokenCredentials,
+                serviceType: KeychainProvider.serviceTypeLoginToken
+            )
+        } catch {}
+        do {
+            try KeychainProvider.storeGenericTokenFor(
+                credentials: credentials,
+                serviceType: KeychainProvider.serviceTypeBiometrics
+            )
+        } catch {}
     }
     
     func getServers(input: TokenModel) {
