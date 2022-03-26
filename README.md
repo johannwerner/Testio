@@ -48,10 +48,10 @@ A few things I missed because of time constraints
 
 ## Known issues
 
-- error handling was never completed and whatever error you get from the server I show the error message password, email is incorrect whether internet is offline or any other issue. 
+- error handling was not done well and need a better solution there. 
 - tapping on the status bar while filter view will scroll the filter view up. I decided this was a feature and not a bug.
-- Top cell divider on first   
-
+- Top cell divider on first row. Should ideally be removed
+- Keyboard layout is different on iPhone 8 than design
 
 ## TOComponents
 

@@ -96,6 +96,11 @@ extension TOFilterView: UITableViewDataSource {
         cell.textLabel?.text = item.itemText
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         cell.textLabel?.textColor = isSelected ? .systemBlue: .black
+        // make cell divider go till the end of the cell
+        cell.separatorInset  = .zero
+        // above causes offset of title which should be reversed by next two lines
+        cell.indentationWidth = 16
+        cell.indentationLevel = 1
         return cell
     }
 }

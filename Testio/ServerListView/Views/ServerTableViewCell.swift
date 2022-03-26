@@ -11,6 +11,7 @@ final class ServerTableViewCell: UITableViewCell {
     // MARK: - Properties
     private var serverNameLabel = UILabel()
     private var distanceLabel = UILabel()
+    private var dividerView = UIView()
 
     // MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -38,6 +39,7 @@ private extension ServerTableViewCell {
         selectionStyle = .none
         setUpServerNameLabel()
         setUpDistanceLabel()
+        setUpDividerView()
     }
     
     func setUpServerNameLabel() {
@@ -53,5 +55,15 @@ private extension ServerTableViewCell {
             .trailing(equalTo: contentView, constant: 16)
             .top(equalTo: contentView, constant: 11)
             .bottom(equalTo: contentView, constant: 11)
+    }
+    
+    func setUpDividerView() {
+        add(subview: dividerView)
+            .leading(equalTo: self, constant: 16)
+            .bottom(equalTo: self)
+            .trailing(equalTo: self)
+            .height(equalTo: 0.5)
+        
+        dividerView.backgroundColor = ColorTheme.tableViewDividerColor
     }
 }

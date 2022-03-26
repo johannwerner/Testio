@@ -22,6 +22,10 @@ extension ColorTheme {
     static var tableViewSectionHeaderTextColor: UIColor {
         ColorTheme.colorWith(red: 102, green: 102, blue: 102)
     }
+    
+    static var tableViewDividerColor: UIColor {
+        ColorTheme.colorWith(red: 60, green: 60, blue: 67, alpha: 0.3)
+    }
 }
 
 // MARK: - Private

@@ -20,6 +20,7 @@ final class ServerListViewController: UIViewController {
         tableView.estimatedRowHeight = 375
         tableView.rowHeight = UITableView.automaticDimension
         tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -64,6 +65,9 @@ extension ServerListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let server = viewModel.serverAt(indexPath: indexPath)
+        for subview in cell.subviews {
+            subview.tintColor = .clear
+        }
         cell.fill(server: server)
         return cell
     }
