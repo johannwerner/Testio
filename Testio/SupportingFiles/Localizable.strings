@@ -24,3 +24,5 @@
 "log_into_account" = "Log in to your account";
 "cancel" = "Cancel";
 "enter_username_password" = "Please enter username and password.";
+"introduction_view_primary_button" = "Next";
+"introduction_view_subtitle_text" = "<b><custom>iOS</custom></b> Challenge";

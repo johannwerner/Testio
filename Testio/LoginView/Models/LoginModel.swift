@@ -27,7 +27,6 @@ struct LoginConstants {
     static let passwordIconImage = "security"
     static let appMargin: CGFloat = 32
     static let cornerRadius: CGFloat = 10
-    static let appleMinimimWidthHeight: CGFloat = 44
 }
 
 struct LoginInputModel {

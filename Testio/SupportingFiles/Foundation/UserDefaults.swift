@@ -38,4 +38,7 @@ struct UserDefaultsProvider {
     private init() {}
     @UserDefaultsProperty(userDefaultsKey: "username", initalValue: nil)
     public static var username: String?
+    
+    @UserDefaultsProperty(userDefaultsKey: "introduction", initalValue: false)
+    public static var hideIntroduction: Bool
 }

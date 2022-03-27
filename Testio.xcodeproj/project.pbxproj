@@ -58,6 +58,15 @@
 		93FC624827EC5E4600ED5BF1 /* ServerListInteractorApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC624727EC5E4600ED5BF1 /* ServerListInteractorApi.swift */; };
 		93FC624A27EC5FB700ED5BF1 /* ServerListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC624927EC5FB700ED5BF1 /* ServerListConfigurator.swift */; };
 		93FC625927EC73CD00ED5BF1 /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC625827EC73CD00ED5BF1 /* ServerTableViewCell.swift */; };
+		93FC7FAE27F03E6D005E89BF /* AttributedStringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FAD27F03E6D005E89BF /* AttributedStringProvider.swift */; };
+		93FC7FB827F04378005E89BF /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB027F04378005E89BF /* IntroductionViewController.swift */; };
+		93FC7FB927F04378005E89BF /* IntroductionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB127F04378005E89BF /* IntroductionConfigurator.swift */; };
+		93FC7FBA27F04378005E89BF /* IntroductionModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB227F04378005E89BF /* IntroductionModuleViewModel.swift */; };
+		93FC7FBB27F04378005E89BF /* IntroductionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB327F04378005E89BF /* IntroductionModel.swift */; };
+		93FC7FBC27F04378005E89BF /* IntroductionInteractorApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB427F04378005E89BF /* IntroductionInteractorApi.swift */; };
+		93FC7FBD27F04378005E89BF /* IntroductionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB527F04378005E89BF /* IntroductionUseCase.swift */; };
+		93FC7FBE27F04378005E89BF /* IntroductionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB627F04378005E89BF /* IntroductionCoordinator.swift */; };
+		93FC7FBF27F04378005E89BF /* IntroductionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB727F04378005E89BF /* IntroductionInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +146,15 @@
 		93FC624727EC5E4600ED5BF1 /* ServerListInteractorApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListInteractorApi.swift; sourceTree = "<group>"; };
 		93FC624927EC5FB700ED5BF1 /* ServerListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListConfigurator.swift; sourceTree = "<group>"; };
 		93FC625827EC73CD00ED5BF1 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
+		93FC7FAD27F03E6D005E89BF /* AttributedStringProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringProvider.swift; sourceTree = "<group>"; };
+		93FC7FB027F04378005E89BF /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		93FC7FB127F04378005E89BF /* IntroductionConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionConfigurator.swift; sourceTree = "<group>"; };
+		93FC7FB227F04378005E89BF /* IntroductionModuleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionModuleViewModel.swift; sourceTree = "<group>"; };
+		93FC7FB327F04378005E89BF /* IntroductionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionModel.swift; sourceTree = "<group>"; };
+		93FC7FB427F04378005E89BF /* IntroductionInteractorApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionInteractorApi.swift; sourceTree = "<group>"; };
+		93FC7FB527F04378005E89BF /* IntroductionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionUseCase.swift; sourceTree = "<group>"; };
+		93FC7FB627F04378005E89BF /* IntroductionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionCoordinator.swift; sourceTree = "<group>"; };
+		93FC7FB727F04378005E89BF /* IntroductionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +198,7 @@
 		9306F56E27EA0690003B6CDC /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				93FC7FAD27F03E6D005E89BF /* AttributedStringProvider.swift */,
 				935BF08C27EE47BE002757BE /* UserDefaults.swift */,
 				9306F56F27EA0749003B6CDC /* Decodable+Utils.swift */,
 				9306F56C27EA068D003B6CDC /* String+App.swift */,
@@ -249,6 +268,7 @@
 				93DB8EFA27EF8B0D0051A462 /* Main */,
 				93982EFF27E9FFD900782E86 /* LoginView */,
 				93FC623927EC59A900ED5BF1 /* ServerListView */,
+				93FC7FAF27F04378005E89BF /* IntroductionView */,
 				9306F56327EA0538003B6CDC /* SupportingFiles */,
 				93982EEF27E9F87700782E86 /* Assets.xcassets */,
 				93982EF127E9F87700782E86 /* LaunchScreen.storyboard */,
@@ -346,6 +366,29 @@
 				9313CC4427ECA5D80096A6AD /* ServerHeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		93FC7FAF27F04378005E89BF /* IntroductionView */ = {
+			isa = PBXGroup;
+			children = (
+				93FC7FC027F04B5C005E89BF /* Models */,
+				93FC7FB027F04378005E89BF /* IntroductionViewController.swift */,
+				93FC7FB127F04378005E89BF /* IntroductionConfigurator.swift */,
+				93FC7FB227F04378005E89BF /* IntroductionModuleViewModel.swift */,
+				93FC7FB427F04378005E89BF /* IntroductionInteractorApi.swift */,
+				93FC7FB527F04378005E89BF /* IntroductionUseCase.swift */,
+				93FC7FB627F04378005E89BF /* IntroductionCoordinator.swift */,
+				93FC7FB727F04378005E89BF /* IntroductionInteractor.swift */,
+			);
+			path = IntroductionView;
+			sourceTree = "<group>";
+		};
+		93FC7FC027F04B5C005E89BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93FC7FB327F04378005E89BF /* IntroductionModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,12 +552,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FC7FBF27F04378005E89BF /* IntroductionInteractor.swift in Sources */,
 				93982F0C27E9FFD900782E86 /* LoginInteractorApi.swift in Sources */,
 				93982F0A27E9FFD900782E86 /* LoginViewModel.swift in Sources */,
+				93FC7FBE27F04378005E89BF /* IntroductionCoordinator.swift in Sources */,
 				9306F56527EA054C003B6CDC /* Async.swift in Sources */,
 				93FC624A27EC5FB700ED5BF1 /* ServerListConfigurator.swift in Sources */,
 				93FC624427EC5D7400ED5BF1 /* ServerListCoordinator.swift in Sources */,
 				93FC624827EC5E4600ED5BF1 /* ServerListInteractorApi.swift in Sources */,
+				93FC7FBB27F04378005E89BF /* IntroductionModel.swift in Sources */,
 				93982EE727E9F87700782E86 /* AppDelegate.swift in Sources */,
 				93DB8EC527EF63430051A462 /* ServerPersistentModel.xcdatamodeld in Sources */,
 				93FC612327EB119D00ED5BF1 /* ColorTheme.swift in Sources */,
@@ -522,8 +568,10 @@
 				9306F56B27EA05E6003B6CDC /* ObservableType.swift in Sources */,
 				93DB8EFE27EFA11D0051A462 /* AppConstants.swift in Sources */,
 				93FC624027EC5BE900ED5BF1 /* ServerListViewModel.swift in Sources */,
+				93FC7FB927F04378005E89BF /* IntroductionConfigurator.swift in Sources */,
 				93DB8EC727EF63F40051A462 /* ServerPersistentModel.swift in Sources */,
 				93FC624627EC5E1F00ED5BF1 /* ServerListInteractor.swift in Sources */,
+				93FC7FBC27F04378005E89BF /* IntroductionInteractorApi.swift in Sources */,
 				935BF08D27EE47BE002757BE /* UserDefaults.swift in Sources */,
 				93FC625927EC73CD00ED5BF1 /* ServerTableViewCell.swift in Sources */,
 				935BF08927EE420F002757BE /* KeychainProvider.swift in Sources */,
@@ -531,13 +579,17 @@
 				93982F0827E9FFD900782E86 /* LoginViewController.swift in Sources */,
 				9313CC4527ECA5D80096A6AD /* ServerHeaderView.swift in Sources */,
 				93FC623C27EC59D900ED5BF1 /* ServerListModel.swift in Sources */,
+				93FC7FAE27F03E6D005E89BF /* AttributedStringProvider.swift in Sources */,
+				93FC7FBA27F04378005E89BF /* IntroductionModuleViewModel.swift in Sources */,
 				9306F56D27EA068D003B6CDC /* String+App.swift in Sources */,
 				93FC623E27EC5B9A00ED5BF1 /* ServerListViewController.swift in Sources */,
 				93982F0E27E9FFD900782E86 /* LoginCoordinator.swift in Sources */,
+				93FC7FB827F04378005E89BF /* IntroductionViewController.swift in Sources */,
 				93DB8EFC27EF8B1C0051A462 /* MainCoordinator.swift in Sources */,
 				93DB8EF527EF855A0051A462 /* CoreDataConstants.swift in Sources */,
 				93FC623827EBA1AF00ED5BF1 /* ServerModel.swift in Sources */,
 				93982F0F27E9FFD900782E86 /* LoginInteractor.swift in Sources */,
+				93FC7FBD27F04378005E89BF /* IntroductionUseCase.swift in Sources */,
 				93982F0B27E9FFD900782E86 /* LoginModel.swift in Sources */,
 				9306F57027EA0749003B6CDC /* Decodable+Utils.swift in Sources */,
 				93FC624227EC5D2200ED5BF1 /* ServerListUseCase.swift in Sources */,

@@ -38,4 +38,6 @@ final class LocalizedKeys {
     static let logIntoAccount = "log_into_account".localizedString()
     static let cancel = "cancel".localizedString()
     static let enterUsernamePassword = "enter_username_password".localizedString()
+    static let introductionButton = "introduction_view_primary_button".localizedString()
+    static let introductionSubtitleText = "introduction_view_subtitle_text".localizedString()
 }

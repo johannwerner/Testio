@@ -19,6 +19,19 @@ final class MainCoordinator {
 
 extension  MainCoordinator {
     func start(animated: Bool) {
+        if UserDefaultsProvider.hideIntroduction {
+            showMain(animated: true)
+        } else {
+            showIntroduction(navigationController: navigationController, animated: true)
+        }
+        return
+    }
+}
+
+// MARK: - Navigation OUT
+
+extension  MainCoordinator {
+    func showMain(animated: Bool) {
         do {
             let token = try KeychainProvider.validToken(
                 username: UserDefaultsProvider.username,
@@ -30,14 +43,10 @@ extension  MainCoordinator {
                 animated: animated
             )
         } catch {
-            showLogin(navigationController: navigationController)
+            showLogin(navigationController: navigationController, animated: true)
         }
     }
-}
-
-// MARK: - Navigation OUT
-
-extension  MainCoordinator {
+    
     func showServerList(navigationController: UINavigationController, token: String, animated: Bool) {
         let interactor = ServerListInteractorApi()
         let configurator = ServerListConfigurator(serverListInteractor: interactor)
@@ -53,14 +62,25 @@ extension  MainCoordinator {
         coordinator.showServerList(model: model, animated: true)
     }
     
-    func showLogin(navigationController: UINavigationController) {
+    func showLogin(navigationController: UINavigationController, animated: Bool) {
         let interactor = LoginInteractorApi()
         let configurator = LoginConfigurator(loginInteractor: interactor)
         let coordinator = LoginCoordinator(
             navigationController: navigationController,
             configurator: configurator
         )
-        coordinator.showLogin(animated: true)
+        coordinator.showLogin(animated: animated)
+    }
+    
+    func showIntroduction(navigationController: UINavigationController, animated: Bool) {
+        UserDefaultsProvider.hideIntroduction = true
+        let interactor = IntroductionInteractorApi()
+        let configurator = IntroductionConfigurator(introductionInteractor: interactor)
+        let coordinator = IntroductionCoordinator(
+            navigationController: navigationController,
+            configurator: configurator
+        )
+        coordinator.showIntroduction(animated: animated)
     }
 }
 

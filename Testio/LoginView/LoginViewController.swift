@@ -182,7 +182,7 @@ private extension  LoginViewController {
             .leading(equalTo: containerView, constant: LoginConstants.appMargin)
             .trailing(equalTo: containerView, constant: LoginConstants.appMargin)
             .top(equalTo: passwordTextField.bottomAnchor, constant: 24)
-            .height(equalTo: LoginConstants.appleMinimimWidthHeight)
+            .height(equalTo: AppConstants.appleMinimimWidthHeight)
             // Apple recomends 44 design uses 40
             // find out which height to use
         
