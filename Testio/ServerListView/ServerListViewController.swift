@@ -111,11 +111,12 @@ private extension  ServerListViewController {
     }
     
     func setUpDoneButton() {
-        let action = UIAction(handler: { [weak self] _ in
-            self?.doneAction()
-        })
-        let doneButton = UIBarButtonItem(title: LocalizedKeys.done, primaryAction: action)
-   
+        let doneButton = UIBarButtonItem(
+            title: LocalizedKeys.done,
+            style: .done,
+            target: self,
+            action: #selector(doneAction)
+        )
         navigationItem.leftBarButtonItem = doneButton
     }
 
@@ -152,7 +153,7 @@ private extension  ServerListViewController {
         tableView.delegate = self
     }
    
-    func doneAction() {
+    @objc func doneAction() {
         if filterView?.selectedIndexPath == viewModel.distanceIndexPath {
             viewAction.accept(.sortByDistancePressed)
         } else {
