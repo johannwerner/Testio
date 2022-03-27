@@ -4,6 +4,7 @@
 ## Not a perfect solution
 Due to limit amount of time I can spend on this and the fact that I did not consult with any other ios developer on this project there is lots of room for improvement and feedback. 
 The app achiture and certain decisions were done in order to show my current knowledge and these decisions are not maybe what I would make in a production enviroment. 
+I also had to make quick decisions based on time. 
 
 I played around with a new achiteture style so I probably made some mistakes in the process but learned from these mistakes.
 I would love to hear feedback and improvements.
@@ -57,7 +58,7 @@ A few things I missed because of time constraints
 
 ## TOComponents
 
-TOComponents was created as a framework so it can be reused in the future.
+TOComponents was created as an independant framework so it can be reused in the future with other projects.
 
 ## Limitations of testing
 Due to the fact that swift package manager has no control over its packages and swiftrx includes arm64 achitecture when running on simulator I was unable to test on simulator and therefore I only tested on iPhone 7, iPhone 8 and iPhone 6s
