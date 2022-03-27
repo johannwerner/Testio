@@ -33,8 +33,8 @@ extension LoginUseCase {
             }
     }
     
-    func getServers(input: TokenModel) -> Observable<ServerStatus> {
-        interactor.getServers(input: input)
+    func fetchServers(input: TokenModel) -> Observable<ServerStatus> {
+        interactor.fetchServers(input: input)
             .map { (result: Async<Any>) -> ServerStatus in
                 switch result {
                 case .loading:

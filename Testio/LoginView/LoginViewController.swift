@@ -270,7 +270,7 @@ private extension  LoginViewController {
     func setUpBiometricsLogin() {
         do {
             if let username = UserDefaultsProvider.username {
-                let data = try KeychainProvider.getGenericTokenFor(
+                let data = try KeychainProvider.fetchGenericTokenFor(
                     username: username, serviceType:
                         KeychainProvider.serviceTypeBiometrics
                 )

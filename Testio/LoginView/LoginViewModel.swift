@@ -63,7 +63,7 @@ private extension LoginViewModel {
                     self.viewEffect.accept(.error(error))
                 case .success(let model):
                     self.handleResponse(input: input, model: model)
-                    self.getServers(input: model)
+                    self.fetchServers(input: model)
                 }
             })
             .disposed(by: disposeBag)
@@ -94,8 +94,8 @@ private extension LoginViewModel {
         } catch {}
     }
     
-    func getServers(input: TokenModel) {
-        useCase.getServers(input: input)
+    func fetchServers(input: TokenModel) {
+        useCase.fetchServers(input: input)
             .subscribe(onNext: { [unowned self] status in
                 switch status {
                 case .loading:

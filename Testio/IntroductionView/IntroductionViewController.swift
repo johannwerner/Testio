@@ -100,6 +100,7 @@ private extension  IntroductionViewController {
         primaryButton.layer.cornerRadius = 4.0
 
         primaryButton.backgroundColor = ColorTheme.primaryInteractiveColor
+
         primaryButton.setTitle(
             LocalizedKeys.introductionButton,
             for: .normal

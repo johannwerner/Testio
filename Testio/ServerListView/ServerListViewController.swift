@@ -99,10 +99,14 @@ private extension  ServerListViewController {
     
     func setUpFilterButton() {
         tableView.scrollsToTop = true
-        let action = UIAction(handler: { [weak self] _ in
-            self?.showFilterView()
-        })
-        let filterButton = UIBarButtonItem(title: LocalizedKeys.filter, primaryAction: action)
+        let image = ServerConstants.filterButtonImage.imageInBundle
+        let filterButtonView = TOBarButtonView(
+            imagePosition: .left(image),
+            buttonText: LocalizedKeys.filter,
+            target: self,
+            action: #selector(showFilterView)
+        )
+        let filterButton = UIBarButtonItem(customView: filterButtonView)
         navigationItem.leftBarButtonItem = filterButton
     }
     
@@ -111,6 +115,7 @@ private extension  ServerListViewController {
             self?.doneAction()
         })
         let doneButton = UIBarButtonItem(title: LocalizedKeys.done, primaryAction: action)
+   
         navigationItem.leftBarButtonItem = doneButton
     }
 
@@ -130,10 +135,14 @@ private extension  ServerListViewController {
     }
     
     func setUpLogOutButton() {
-        let action = UIAction(handler: { [weak self] _ in
-            self?.logout()
-        })
-        let logoutButton = UIBarButtonItem(title: LocalizedKeys.logout, primaryAction: action)
+        let image = ServerConstants.logoutImage.imageInBundle
+        let logoutButtonView = TOBarButtonView(
+            imagePosition: .right(image),
+            buttonText: LocalizedKeys.logout,
+            target: self,
+            action: #selector(logout)
+        )
+        let logoutButton = UIBarButtonItem(customView: logoutButtonView)
         navigationItem.rightBarButtonItem = logoutButton
     }
     

@@ -26,6 +26,10 @@ extension ColorTheme {
     static var tableViewDividerColor: UIColor {
         ColorTheme.colorWith(red: 60, green: 60, blue: 67, alpha: 0.3)
     }
+    
+    static var primaryInteractiveHighlightColor: UIColor {
+        primaryInteractiveColor.withAlphaComponent(0.4)
+    }
 }
 
 // MARK: - Private

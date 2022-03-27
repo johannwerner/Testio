@@ -68,6 +68,7 @@
 		93FC7FBE27F04378005E89BF /* IntroductionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB627F04378005E89BF /* IntroductionCoordinator.swift */; };
 		93FC7FBF27F04378005E89BF /* IntroductionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB727F04378005E89BF /* IntroductionInteractor.swift */; };
 		93FC7FC827F04FA1005E89BF /* TestioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FC727F04FA1005E89BF /* TestioTests.swift */; };
+		93FC7FF327F05EE3005E89BF /* TOBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FF227F05EE3005E89BF /* TOBarButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		93FC7FB727F04378005E89BF /* IntroductionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionInteractor.swift; sourceTree = "<group>"; };
 		93FC7FC527F04FA1005E89BF /* TestioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FC7FC727F04FA1005E89BF /* TestioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestioTests.swift; sourceTree = "<group>"; };
+		93FC7FF227F05EE3005E89BF /* TOBarButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOBarButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 		935BF07027EE0225002757BE /* TOComponents */ = {
 			isa = PBXGroup;
 			children = (
+				93FC7FF227F05EE3005E89BF /* TOBarButtonView.swift */,
 				935BF07227EE0225002757BE /* ComponentConstants.swift */,
 				935BF07427EE0225002757BE /* TOImageView.swift */,
 				935BF07527EE0225002757BE /* Resuable.swift */,
@@ -600,6 +603,7 @@
 				935BF08127EE0225002757BE /* Resuable.swift in Sources */,
 				935BF08027EE0225002757BE /* TOImageView.swift in Sources */,
 				935BF08727EE0226002757BE /* UIView+App.swift in Sources */,
+				93FC7FF327F05EE3005E89BF /* TOBarButtonView.swift in Sources */,
 				935BF08227EE0225002757BE /* TOFilterView.swift in Sources */,
 				935BF07E27EE0225002757BE /* ComponentConstants.swift in Sources */,
 			);

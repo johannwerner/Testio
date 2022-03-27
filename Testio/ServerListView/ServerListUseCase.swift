@@ -15,8 +15,8 @@ final class ServerListUseCase {
 // MARK: - Public
 
 extension ServerListUseCase {
-    func getServersFromCache() -> Observable<ServerStatus> {
-        interactor.getServersFromCache()
+    func fetchServersFromCache() -> Observable<ServerStatus> {
+        interactor.fetchServersFromCache()
             .map { (result: Async<Any>) -> ServerStatus in
                 switch result {
                 case .loading:
@@ -33,8 +33,8 @@ extension ServerListUseCase {
             }
     }
     
-    func getServersFromApi(input: TokenModel) -> Observable<ServerStatus> {
-        interactor.getServersFromApi(input: input)
+    func fetchServersFromApi(input: TokenModel) -> Observable<ServerStatus> {
+        interactor.fetchServersFromApi(input: input)
             .map { (result: Async<Any>) -> ServerStatus in
                 switch result {
                 case .loading:

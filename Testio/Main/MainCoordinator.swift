@@ -89,7 +89,7 @@ private extension KeychainProvider {
         guard let username = username else {
             throw KeychainError.tokenNotValid
         }
-        let token = try KeychainProvider.getGenericTokenFor(
+        let token = try KeychainProvider.fetchGenericTokenFor(
             username: username,
             serviceType: KeychainProvider.serviceTypeLoginToken
         )

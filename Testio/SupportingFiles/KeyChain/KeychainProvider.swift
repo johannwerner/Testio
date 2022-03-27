@@ -51,7 +51,7 @@ final class KeychainProvider {
         }
     }
     
-    static func getGenericTokenFor(username: String, serviceType: String) throws -> String {
+    static func fetchGenericTokenFor(username: String, serviceType: String) throws -> String {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: username,

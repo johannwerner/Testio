@@ -114,7 +114,7 @@ private extension ServerListViewModel {
     }
     
     func fetchServersFromCache() {
-        useCase.getServersFromCache()
+        useCase.fetchServersFromCache()
             .subscribe(onNext: { [unowned self] status in
                 switch status {
                 case .loading:
@@ -132,7 +132,7 @@ private extension ServerListViewModel {
     
     func fetchServersFromApi() {
         let tokenModel = TokenModel(token: model.token)
-        useCase.getServersFromApi(input: tokenModel)
+        useCase.fetchServersFromApi(input: tokenModel)
             .subscribe(onNext: { [unowned self] status in
                 switch status {
                 case .loading:

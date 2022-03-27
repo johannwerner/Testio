@@ -5,7 +5,7 @@ import RxAlamofire
 final class ServerListInteractorApi: ServerListInteractor {}
 
 extension ServerListInteractorApi {
-    func getServersFromCache() -> Observable<Async<Any>> {
+    func fetchServersFromCache() -> Observable<Async<Any>> {
         Observable.create { observer in
             ServerPersistentModel.shared.getServers { result in
                 switch result {
@@ -22,7 +22,7 @@ extension ServerListInteractorApi {
         .async()
     }
     
-    func getServersFromApi(input: TokenModel) -> Observable<Async<Any>> {
+    func fetchServersFromApi(input: TokenModel) -> Observable<Async<Any>> {
         RxAlamofire
             .requestJSON(
                 .get,

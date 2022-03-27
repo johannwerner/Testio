@@ -20,7 +20,7 @@ extension LoginInteractorApi {
             .async()
     }
     
-    func getServers(input: TokenModel) -> Observable<Async<Any>> {
+    func fetchServers(input: TokenModel) -> Observable<Async<Any>> {
         RxAlamofire
             .requestJSON(
                 .get,
