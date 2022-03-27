@@ -1,5 +1,3 @@
-// TODO: Clean Up needed
-
 import Foundation
 import UIKit
 
@@ -14,6 +12,7 @@ final public class TOBarButtonView: UIView {
     let button: UIButton = {
         let button = UIButton()
         button.setTitleColor(.systemBlue, for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         button.contentHorizontalAlignment = .right
         return button
     }()
@@ -48,6 +47,13 @@ final public class TOBarButtonView: UIView {
 public extension TOBarButtonView {
     func setUpViews() {
         addButtonLabel()
+        setMaximumFontSizeLabel()
+    }
+    
+    func setMaximumFontSizeLabel() {
+        if let titleLabel = button.titleLabel, titleLabel.font.pointSize > 20 {
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        }
     }
     
     func setButtonImage(imagePosition: BarButtonViewImagePosition) {

@@ -4,7 +4,7 @@ import UIKit
 import TOComponents
 
 /// An introduction to my coding challenge
-/// - Requires: `RxSwift`, `RxCocoa`
+/// - Requires: `RxSwift`, `RxCocoa`,  `UIKit`,`TOComponents`,
 final class IntroductionViewController: UIViewController {
     // MARK: Dependencies
     private let viewModel: IntroductionModuleViewModel
@@ -18,12 +18,21 @@ final class IntroductionViewController: UIViewController {
         primaryButton.setTitle(LocalizedKeys.introductionButton, for: .normal)
         primaryButton.backgroundColor = ColorTheme.primaryInteractiveColor
         primaryButton.highlightedBackgroundColor = ColorTheme.primaryInteractiveHighlightColor
-        primaryButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        primaryButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
         return primaryButton
     }()
     
-    private let titleLabel = UILabel()
-    private let subtitleLabel = UILabel()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        return label
+    }()
+
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        return label
+    }()
     private let activityIndicator = UIActivityIndicatorView()
     
     // MARK: Tooling
@@ -78,7 +87,6 @@ private extension  IntroductionViewController {
     func setUpTitleLable() {
         view.add(subview: titleLabel)
             .center(inside: view)
-        titleLabel.font = UIFont.systemFont(ofSize: 21)
         titleLabel.text = IntroductionConstants.titleLabelText
     }
     
@@ -87,10 +95,11 @@ private extension  IntroductionViewController {
             .centerX(equalTo: view)
             .top(equalTo: titleLabel.bottomAnchor, constant: 17)
 
-        subtitleLabel.font = UIFont.systemFont(ofSize: 17)
         let subtitleString = LocalizedKeys.introductionSubtitleText
 
-        let attributesForBold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]
+        let attributesForBold = [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: subtitleLabel.font.pointSize)
+        ]
         let attributesForCustom = [NSAttributedString.Key.foregroundColor: ColorTheme.primaryInteractiveColor]
 
         subtitleLabel.attributedText = AttributedStringProvider.convertStringToAttributedString(
@@ -105,7 +114,7 @@ private extension  IntroductionViewController {
             .leading(equalTo: view, constant: IntroductionConstants.appMargin)
             .trailing(equalTo: view, constant: IntroductionConstants.appMargin)
             .top(equalTo: subtitleLabel.bottomAnchor, constant: 24)
-            .height(equalTo: AppConstants.appleMinimimWidthHeight)
+            .height(greaterThanOrEqualTo: AppConstants.appleMinimimWidthHeight)
         primaryButton.layer.cornerRadius = 4.0
 
         primaryButton.backgroundColor = ColorTheme.primaryInteractiveColor

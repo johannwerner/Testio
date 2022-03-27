@@ -3,7 +3,7 @@ import RxSwift
 import Foundation
 
 ///
-/// - Requires: `RxSwift`, `RxCocoa`
+/// - Requires: `RxSwift`, `RxCocoa`, `Foundation`
 /// - Note: A view model can refer to one or more use cases.
 
 final class ServerListViewModel {
@@ -102,6 +102,8 @@ private extension ServerListViewModel {
                 )
             } catch {}
         }
+        // For security if the person logs out lets delete all the data that can fetched again with a login
+        ServerPersistentModel.shared.deleteAllServers()
         coordinator.showLogin()
     }
     

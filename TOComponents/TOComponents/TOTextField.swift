@@ -64,7 +64,7 @@ private extension TOTextField {
     func layoutUI() {
         font = UIFont.systemFont(ofSize: 17)
         layer.cornerRadius = ComponentConstants.cornerRadius
-        height(equalTo: 40)
+        height(greaterThanOrEqualTo: ComponentConstants.heightOfTextField)
         configureTextfield()
         textColor = ColorTheme.textFieldTextColor
         backgroundColor = ColorTheme.textFieldBackgroundColor

@@ -4,13 +4,13 @@ final class ServerHeaderView: UIView {
     let serverLabel: UILabel = {
         let label = UILabel()
         label.textColor = ColorTheme.tableViewSectionHeaderTextColor
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.preferredFont(forTextStyle: .caption2)
         return label
     }()
     let distanceLabel: UILabel = {
         let label = UILabel()
         label.textColor = ColorTheme.tableViewSectionHeaderTextColor
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.preferredFont(forTextStyle: .caption2)
         return label
     }()
 
@@ -35,7 +35,7 @@ extension ServerHeaderView {
     
     func addServerLabel() {
         add(subview: serverLabel)
-            .leading(equalTo: self, constant: 16)
+            .leading(equalTo: self, constant: ServerConstants.appMargin)
             .top(equalTo: self, constant: 14)
             .bottom(equalTo: self, constant: 8)
     }
@@ -43,9 +43,8 @@ extension ServerHeaderView {
     func addDistanceLabel() {
         add(subview: distanceLabel)
             .leading(greaterThanOrEqualTo: serverLabel.trailingAnchor, constant: 5)
-            .top(equalTo: self, constant: 14)
-            .bottom(equalTo: self, constant: 8)
-            .trailing(equalTo: self, constant: 16)
+            .centerY(equalTo: serverLabel)
+            .trailing(equalTo: self, constant: ServerConstants.appMargin)
     }
 }
     

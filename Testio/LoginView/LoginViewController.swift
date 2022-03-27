@@ -22,6 +22,7 @@ final class LoginViewController: UIViewController {
         let textField = TOTextField(textFieldType: .username)
         textField.placeholder = LocalizedKeys.username
         textField.leftIcon = LoginConstants.usernameIconImage.imageInBundle
+        textField.font = UIFont.preferredFont(forTextStyle: .body)
         textField.delegate = self
         return textField
     }()
@@ -30,6 +31,7 @@ final class LoginViewController: UIViewController {
         let textField = TOTextField(textFieldType: .password)
         textField.placeholder = LocalizedKeys.password
         textField.leftIcon = LoginConstants.passwordIconImage.imageInBundle
+        textField.font = UIFont.preferredFont(forTextStyle: .body)
         textField.delegate = self
         return textField
     }()
@@ -39,7 +41,7 @@ final class LoginViewController: UIViewController {
         loginButton.setTitle(LocalizedKeys.login, for: .normal)
         loginButton.backgroundColor = ColorTheme.primaryInteractiveColor
         loginButton.highlightedBackgroundColor = ColorTheme.primaryInteractiveHighlightColor
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        loginButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
         return loginButton
     }()
     
@@ -178,7 +180,7 @@ private extension  LoginViewController {
             .leading(equalTo: containerView, constant: LoginConstants.appMargin)
             .trailing(equalTo: containerView, constant: LoginConstants.appMargin)
             .top(equalTo: passwordTextField.bottomAnchor, constant: 24)
-            .height(equalTo: AppConstants.appleMinimimWidthHeight)
+            .height(greaterThanOrEqualTo: AppConstants.appleMinimimWidthHeight)
             // Apple recomends 44 design uses 40
             // find out which height to use
         
@@ -203,10 +205,12 @@ private extension  LoginViewController {
         activityIndicator.startAnimating()
         containerView.alpha = 0.0
         loginButton.alpha = 0.0
+        loginButton.isHidden = true
         endEditing()
     }
     
     func resetView() {
+        loginButton.isHidden = false
         UIView.animate(withDuration: 0.2, animations: { [weak self]  in
             self?.containerView.alpha = 1.0
             self?.loginButton.alpha = 1.0

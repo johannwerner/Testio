@@ -1,4 +1,5 @@
 import Alamofire
+import CoreGraphics
 /// Operation status enum for  ServiceListView.
 enum ServerListStatus {
     case loading
@@ -32,6 +33,7 @@ struct ServerConstants {
     static let appName = "Testio."
     static let filterButtonImage = "union"
     static let logoutImage = "logout"
+    static let appMargin: CGFloat = 16
 }
 
 enum ServerListSort {

@@ -94,7 +94,8 @@ extension TOFilterView: UITableViewDataSource {
         let isSelected = selectedIndexPath == indexPath
         cell.accessoryType = isSelected ? .checkmark: .none
         cell.textLabel?.text = item.itemText
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
+        cell.textLabel?.numberOfLines = 1
         cell.textLabel?.textColor = isSelected ? .systemBlue: .black
         // make cell divider go till the end of the cell
         cell.separatorInset  = .zero

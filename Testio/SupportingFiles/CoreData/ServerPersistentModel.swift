@@ -1,3 +1,7 @@
+// This class was created by taking inspiration from https://www.raywenderlich.com/7569-getting-started-with-core-data-tutorial and
+// https://developer.apple.com/documentation/coredata
+
+
 import Foundation
 import CoreData
 import UIKit

@@ -9,7 +9,12 @@ import UIKit
 
 open class TOActivityIndicator: UIView {
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
-    private let label = UILabel()
+    private let label: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .footnote)
+        return label
+    }()
+    
     var text: String? {
         didSet {
             label.text = text
@@ -47,6 +52,8 @@ public extension TOActivityIndicator {
 
 private extension TOActivityIndicator {
     func setUpViews() {
+        accessibilityHint = text
+        isAccessibilityElement = true
         setUpActivityIndicator()
         setUpLabel()
         stopAnimating()
@@ -58,6 +65,10 @@ private extension TOActivityIndicator {
             .centerX(equalTo: self)
        
         activityIndicator.hidesWhenStopped = true
+        
+        if label.font.pointSize > 16 {
+            activityIndicator.style = .large
+        }
     }
     
     func setUpLabel() {
@@ -67,7 +78,6 @@ private extension TOActivityIndicator {
             .trailing(equalTo: self)
             .bottom(equalTo: self)
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 13)
         label.text = text
     }
 }

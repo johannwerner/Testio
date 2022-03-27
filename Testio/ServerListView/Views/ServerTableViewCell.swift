@@ -2,8 +2,22 @@ import UIKit
 
 final class ServerTableViewCell: UITableViewCell {
     // MARK: - Properties
-    private var serverNameLabel = UILabel()
-    private var distanceLabel = UILabel()
+    private var serverNameLabel: UILabel = {
+        let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.numberOfLines = 0
+        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        return label
+    }()
+    
+    private var distanceLabel: UILabel = {
+        let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        return label
+    }()
+    
     private var dividerView = UIView()
 
     // MARK: - Life Cycle
@@ -37,7 +51,7 @@ private extension ServerTableViewCell {
     
     func setUpServerNameLabel() {
         contentView.add(subview: serverNameLabel)
-            .leading(equalTo: contentView, constant: 16)
+            .leading(equalTo: contentView, constant: ServerConstants.appMargin)
             .top(equalTo: contentView, constant: 11)
             .bottom(equalTo: contentView, constant: 11)
     }
@@ -45,9 +59,8 @@ private extension ServerTableViewCell {
     func setUpDistanceLabel() {
         contentView.add(subview: distanceLabel)
             .leading(greaterThanOrEqualTo: serverNameLabel.trailingAnchor, constant: 5)
-            .trailing(equalTo: contentView, constant: 16)
-            .top(equalTo: contentView, constant: 11)
-            .bottom(equalTo: contentView, constant: 11)
+            .trailing(equalTo: contentView, constant: ServerConstants.appMargin)
+            .centerY(equalTo: contentView)
     }
     
     func setUpDividerView() {
