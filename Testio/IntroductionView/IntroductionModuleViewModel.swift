@@ -38,7 +38,7 @@ extension IntroductionModuleViewModel {
             .subscribe(onNext: { [unowned self] viewAction in
                 switch viewAction {
                 case .primaryButtonPressed:
-                    self.showNextView()
+                    self.showLoginView()
                 }
             })
             .disposed(by: disposeBag)
@@ -48,7 +48,7 @@ extension IntroductionModuleViewModel {
 // MARK: - Private functions
 
 private extension IntroductionModuleViewModel {
-    func showNextView() {
+    func showLoginView() {
         coordinator.showLogin(animated: true)
     }
 }

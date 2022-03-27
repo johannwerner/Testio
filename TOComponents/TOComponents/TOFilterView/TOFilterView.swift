@@ -39,7 +39,7 @@ final public class TOFilterView: UIView {
         return tableView
     }()
     
-    private var constraint: NSLayoutConstraint?
+    private var tableViewConstraint: NSLayoutConstraint?
     public var backgroundTappedCompletion: (() -> Void)?
 
     // MARK: LifeCycle
@@ -64,7 +64,7 @@ final public class TOFilterView: UIView {
 public extension TOFilterView {
     func showView() {
         layoutIfNeeded()
-        constraint?.constant = 8
+        tableViewConstraint?.constant = 8
         UIView.animate(withDuration: ComponentConstants.animationDuration, animations: { [weak self] in
             self?.layoutIfNeeded()
             self?.alpha = 1.0
@@ -73,7 +73,7 @@ public extension TOFilterView {
     
     func hideView() {
         layoutIfNeeded()
-        constraint?.constant = -heightOfTableViewOffset
+        tableViewConstraint?.constant = -heightOfTableViewOffset
         UIView.animate(withDuration: ComponentConstants.animationDuration, animations: { [weak self] in
             self?.layoutIfNeeded()
             self?.alpha = 0.0
@@ -148,7 +148,7 @@ private extension TOFilterView {
         constraint.priority = .required
         constraint.isActive = true
         
-        self.constraint = constraint
+        self.tableViewConstraint = constraint
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseId)
         tableView.dataSource = self

@@ -7,9 +7,15 @@ final class ServerListInteractorApi: ServerListInteractor {}
 extension ServerListInteractorApi {
     func getServersFromCache() -> Observable<Async<Any>> {
         Observable.create { observer in
-            ServerPersistentModel.shared.getServers { servers in
-                observer.onNext(servers)
-                observer.onCompleted()
+            ServerPersistentModel.shared.getServers { result in
+                switch result {
+                case .success(let servers):
+                    observer.onNext(servers)
+                    observer.onCompleted()
+                case .error:
+                    observer.onNext([])
+                    observer.onCompleted()
+                }
             }
         return Disposables.create()
         }

@@ -2,6 +2,11 @@ import Foundation
 import CoreData
 import UIKit
 
+enum CoreDataResult<T> {
+    case success(T)
+    case error
+}
+
 final class ServerPersistentModel {
     private init() {}
     static var shared = ServerPersistentModel()
@@ -39,7 +44,6 @@ final class ServerPersistentModel {
 
         server.setValue(name, forKeyPath: CoreDataConstants.serverName)
         server.setValue(distance, forKeyPath: CoreDataConstants.serverDistance)
-
         do {
             try managedContext.save()
             managedObjects.append(server)
@@ -60,7 +64,7 @@ final class ServerPersistentModel {
             } catch {}
     }
     
-    func getServers(completion: ([Server]) -> Void) {
+    func getServers(completion: (CoreDataResult<[Server]>) -> Void) {
         let managedContext = persistentContainer.viewContext
         let fetchRequest =
         NSFetchRequest<NSManagedObject>(entityName: CoreDataConstants.serverCache)
@@ -73,7 +77,9 @@ final class ServerPersistentModel {
                 let server = Server(name: name, distance: distance)
                 servers.append(server)
             }
-            completion(servers)
-        } catch {}
+            completion(.success(servers))
+        } catch {
+            completion(.error)
+        }
     }
 }

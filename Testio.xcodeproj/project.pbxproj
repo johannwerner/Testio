@@ -67,6 +67,7 @@
 		93FC7FBD27F04378005E89BF /* IntroductionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB527F04378005E89BF /* IntroductionUseCase.swift */; };
 		93FC7FBE27F04378005E89BF /* IntroductionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB627F04378005E89BF /* IntroductionCoordinator.swift */; };
 		93FC7FBF27F04378005E89BF /* IntroductionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FB727F04378005E89BF /* IntroductionInteractor.swift */; };
+		93FC7FC827F04FA1005E89BF /* TestioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FC727F04FA1005E89BF /* TestioTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 935BF06427EE020E002757BE;
 			remoteInfo = TOComponents;
+		};
+		93FC7FC927F04FA1005E89BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93982EDB27E9F87700782E86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93982EE227E9F87700782E86;
+			remoteInfo = Testio;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -155,6 +163,8 @@
 		93FC7FB527F04378005E89BF /* IntroductionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionUseCase.swift; sourceTree = "<group>"; };
 		93FC7FB627F04378005E89BF /* IntroductionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionCoordinator.swift; sourceTree = "<group>"; };
 		93FC7FB727F04378005E89BF /* IntroductionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionInteractor.swift; sourceTree = "<group>"; };
+		93FC7FC527F04FA1005E89BF /* TestioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93FC7FC727F04FA1005E89BF /* TestioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestioTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +184,13 @@
 				937026EF27EE6407002BE1F6 /* RxSwift in Frameworks */,
 				937026ED27EE6407002BE1F6 /* RxCocoa in Frameworks */,
 				935BF06B27EE020E002757BE /* TOComponents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93FC7FC227F04FA1005E89BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +262,7 @@
 				935BEFFF27EDF0D3002757BE /* README.md */,
 				93982EE527E9F87700782E86 /* Testio */,
 				935BF06627EE020E002757BE /* TOComponents */,
+				93FC7FC627F04FA1005E89BF /* TestioTests */,
 				93982EE427E9F87700782E86 /* Products */,
 				93D0DD8027EE60A4008CCC8C /* Frameworks */,
 			);
@@ -255,6 +273,7 @@
 			children = (
 				93982EE327E9F87700782E86 /* Testio.app */,
 				935BF06527EE020E002757BE /* TOComponents.framework */,
+				93FC7FC527F04FA1005E89BF /* TestioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -391,6 +410,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		93FC7FC627F04FA1005E89BF /* TestioTests */ = {
+			isa = PBXGroup;
+			children = (
+				93FC7FC727F04FA1005E89BF /* TestioTests.swift */,
+			);
+			path = TestioTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -448,6 +475,24 @@
 			productReference = 93982EE327E9F87700782E86 /* Testio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		93FC7FC427F04FA1005E89BF /* TestioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93FC7FCB27F04FA1005E89BF /* Build configuration list for PBXNativeTarget "TestioTests" */;
+			buildPhases = (
+				93FC7FC127F04FA1005E89BF /* Sources */,
+				93FC7FC227F04FA1005E89BF /* Frameworks */,
+				93FC7FC327F04FA1005E89BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93FC7FCA27F04FA1005E89BF /* PBXTargetDependency */,
+			);
+			name = TestioTests;
+			productName = TestioTests;
+			productReference = 93FC7FC527F04FA1005E89BF /* TestioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -464,6 +509,10 @@
 					};
 					93982EE227E9F87700782E86 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					93FC7FC427F04FA1005E89BF = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 93982EE227E9F87700782E86;
 					};
 				};
 			};
@@ -486,6 +535,7 @@
 			targets = (
 				93982EE227E9F87700782E86 /* Testio */,
 				935BF06427EE020E002757BE /* TOComponents */,
+				93FC7FC427F04FA1005E89BF /* TestioTests */,
 			);
 		};
 /* End PBXProject section */
@@ -505,6 +555,13 @@
 				93982EF327E9F87700782E86 /* LaunchScreen.storyboard in Resources */,
 				93FC612727EB166F00ED5BF1 /* Localizable.strings in Resources */,
 				93982EF027E9F87700782E86 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93FC7FC327F04FA1005E89BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +653,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		93FC7FC127F04FA1005E89BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93FC7FC827F04FA1005E89BF /* TestioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -603,6 +668,11 @@
 			isa = PBXTargetDependency;
 			target = 935BF06427EE020E002757BE /* TOComponents */;
 			targetProxy = 935BF06927EE020E002757BE /* PBXContainerItemProxy */;
+		};
+		93FC7FCA27F04FA1005E89BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93982EE227E9F87700782E86 /* Testio */;
+			targetProxy = 93FC7FC927F04FA1005E89BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -871,6 +941,44 @@
 			};
 			name = Release;
 		};
+		93FC7FCC27F04FA1005E89BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UUSQ3XB7HL;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.endios.TestioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Testio.app/Testio";
+			};
+			name = Debug;
+		};
+		93FC7FCD27F04FA1005E89BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UUSQ3XB7HL;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.endios.TestioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Testio.app/Testio";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -897,6 +1005,15 @@
 			buildConfigurations = (
 				93982EF827E9F87700782E86 /* Debug */,
 				93982EF927E9F87700782E86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93FC7FCB27F04FA1005E89BF /* Build configuration list for PBXNativeTarget "TestioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93FC7FCC27F04FA1005E89BF /* Debug */,
+				93FC7FCD27F04FA1005E89BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
