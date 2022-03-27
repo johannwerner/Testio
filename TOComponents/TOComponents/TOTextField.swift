@@ -64,7 +64,6 @@ private extension TOTextField {
     func layoutUI() {
         font = UIFont.systemFont(ofSize: 17)
         layer.cornerRadius = ComponentConstants.cornerRadius
-        height(greaterThanOrEqualTo: ComponentConstants.heightOfTextField)
         configureTextfield()
         textColor = ColorTheme.textFieldTextColor
         backgroundColor = ColorTheme.textFieldBackgroundColor
@@ -121,7 +120,6 @@ private extension TOTextField {
             leftView = nil
             return
         }
-
         let view = UIView(frame: CGRect(x: 0, y: 0, width: iconSize + iconRightPadding, height: iconSize))
         leftViewMode = .always
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: iconSize, height: iconSize))
@@ -134,5 +132,8 @@ private extension TOTextField {
         }
         view.addSubview(imageView)
         leftView = view
+        // Below causes autolayout constraint to break
+        // but fixes issue with icon jumping.
+        layoutIfNeeded()
     }
 }

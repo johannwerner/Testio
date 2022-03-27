@@ -39,7 +39,7 @@ extension LoginViewModel {
             .subscribe(onNext: { [unowned self] viewAction in
                 switch viewAction {
                 case .loginButtonPressed(let input):
-                    self.showNextView(input: input)
+                    showNextView(input: input)
                 }
             })
             .disposed(by: disposeBag)
@@ -58,12 +58,12 @@ private extension LoginViewModel {
             .subscribe(onNext: { [unowned self] status in
                 switch status {
                 case .loading:
-                    self.viewEffect.accept(.loading)
+                    viewEffect.accept(.loading)
                 case .error(let error):
-                    self.viewEffect.accept(.error(error))
+                    viewEffect.accept(.error(error))
                 case .success(let model):
-                    self.handleResponse(input: input, model: model)
-                    self.fetchServers(input: model)
+                    handleResponse(input: input, model: model)
+                    fetchServers(input: model)
                 }
             })
             .disposed(by: disposeBag)
@@ -99,12 +99,12 @@ private extension LoginViewModel {
             .subscribe(onNext: { [unowned self] status in
                 switch status {
                 case .loading:
-                    self.viewEffect.accept(.loading)
+                    viewEffect.accept(.loading)
                 case .error(let error):
-                    self.viewEffect.accept(.error(error))
+                    viewEffect.accept(.error(error))
                 case .success(let servers):
-                    self.viewEffect.accept(.success)
-                    self.coordinator.showServerList(
+                    viewEffect.accept(.success)
+                    coordinator.showServerList(
                         servers: servers,
                         token: token ?? "",
                         animated: true

@@ -54,13 +54,14 @@ A few things I missed because of time constraints
 - error handling was not done well and need a better solution there. 
 - Keyboard layout is different on iPhone 8 than design
 - The requirements are not clear when to update from cache to live data and how leaving the user with a bad experience potentially. Possibly should have a update to live data button. 
+- Simulator has an issue with touch when keyboard is active. Works on device.
 
 ## TOComponents
 
 TOComponents was created as an independant framework so it can be reused in the future with other projects.
 
 ## Limitations of testing
-Due to the fact that swift package manager has no control over its packages and swiftrx includes arm64 achitecture when running on simulator I was unable to test on simulator and therefore I only tested on iPhone 7, iPhone 8 and iPhone 6s
+I only tested on iPhone 7, iPhone 8 and iPhone 6s devices that I currently have with me.
 
 Due to the fact that I did not have a device with faceID I was unable to test faceID but was able to test TouchID. 
 

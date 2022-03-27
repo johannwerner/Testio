@@ -120,7 +120,7 @@ private extension  IntroductionViewController {
         primaryButton.backgroundColor = ColorTheme.primaryInteractiveColor
 
         primaryButton.rx.tap.subscribe(onNext: { [unowned self] _ in
-            self.viewAction.accept(.primaryButtonPressed)
+            viewAction.accept(.primaryButtonPressed)
         })
         .disposed(by: disposeBag)
     }

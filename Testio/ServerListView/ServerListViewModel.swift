@@ -79,7 +79,7 @@ extension ServerListViewModel {
             .subscribe(onNext: { [unowned self] viewAction in
                 switch viewAction {
                 case .logoutButtonPressed:
-                    self.logout()
+                    logout()
                 case .sortByDistancePressed:
                     sortByDistance()
                 case .sortByAlphabetPressed:
@@ -120,13 +120,13 @@ private extension ServerListViewModel {
             .subscribe(onNext: { [unowned self] status in
                 switch status {
                 case .loading:
-                    self.viewEffect.accept(.loading)
+                    viewEffect.accept(.loading)
                 case .error:
                     self.viewEffect.accept(.error)
                 case .success(let servers):
                     self.servers = servers
-                    self.fetchServersFromApi()
-                    self.viewEffect.accept(.success)
+                    fetchServersFromApi()
+                    viewEffect.accept(.success)
                 }
             })
             .disposed(by: disposeBag)
@@ -138,12 +138,12 @@ private extension ServerListViewModel {
             .subscribe(onNext: { [unowned self] status in
                 switch status {
                 case .loading:
-                    self.viewEffect.accept(.loading)
+                    viewEffect.accept(.loading)
                 case .error:
-                    self.viewEffect.accept(.error)
+                    viewEffect.accept(.error)
                 case .success(let servers):
                     self.servers = servers
-                    self.viewEffect.accept(.success)
+                    viewEffect.accept(.success)
                 }
             })
             .disposed(by: disposeBag)

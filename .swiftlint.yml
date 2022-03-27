@@ -56,7 +56,7 @@ line_length:
   ignores_function_declarations: true
   
 file_length:
-  warning: 360
+  warning: 370
   error: 500
   
 type_name:

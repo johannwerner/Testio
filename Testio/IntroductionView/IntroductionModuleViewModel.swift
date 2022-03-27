@@ -38,7 +38,7 @@ extension IntroductionModuleViewModel {
             .subscribe(onNext: { [unowned self] viewAction in
                 switch viewAction {
                 case .primaryButtonPressed:
-                    self.showLoginView()
+                    showLoginView()
                 }
             })
             .disposed(by: disposeBag)

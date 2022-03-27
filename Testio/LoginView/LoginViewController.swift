@@ -17,13 +17,14 @@ final class LoginViewController: UIViewController {
     private let backgroundImage = TOImageView()
     private let logoImageView = TOImageView()
     private let containerView = UIView()
-    private var usernameTextFieldTopConstraint: NSLayoutConstraint?
+    private var containerCenterYConstraint: NSLayoutConstraint?
     private lazy var usernameTextField: TOTextField = {
         let textField = TOTextField(textFieldType: .username)
         textField.placeholder = LocalizedKeys.username
         textField.leftIcon = LoginConstants.usernameIconImage.imageInBundle
         textField.font = UIFont.preferredFont(forTextStyle: .body)
         textField.delegate = self
+        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
@@ -33,6 +34,7 @@ final class LoginViewController: UIViewController {
         textField.leftIcon = LoginConstants.passwordIconImage.imageInBundle
         textField.font = UIFont.preferredFont(forTextStyle: .body)
         textField.delegate = self
+        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
@@ -83,7 +85,11 @@ final class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNotificationKeyboard()
+        #if targetEnvironment(simulator)
+
+        #else
         setUpBiometricsLogin()
+        #endif
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -117,8 +123,8 @@ private extension  LoginViewController {
     func setUpViews() {
         setUpBackgroundImage()
         setUpContainerView()
-        setUpUsernameTextField()
         setUpLogoImage()
+        setUpUsernameTextField()
         setUpPasswordTextField()
         setUpLoginButton()
         setUpActivityIndicator()
@@ -136,36 +142,41 @@ private extension  LoginViewController {
             .leading(equalTo: view)
             .trailing(equalTo: view)
             .bottom(equalTo: view)
+            .height(equalTo: 300)
         backgroundImage.image = LoginConstants.loginBottomImage.imageInBundle
+        backgroundImage.contentMode = .scaleAspectFill
     }
     
     func setUpContainerView() {
         view.add(subview: containerView)
             .leading(equalTo: view)
             .trailing(equalTo: view)
-            .top(equalTo: view, constant: 40)
-            .bottom(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        
+        containerView.clipsToBounds = true
+        
+        let constraint = containerView.centerYAnchor.constraint(
+            equalTo: view.centerYAnchor,
+            constant: LoginConstants.containerCenterY
+        )
+        constraint.isActive = true
+        containerCenterYConstraint = constraint
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func setUpLogoImage() {
+        containerView.add(subview: logoImageView)
+            .top(equalTo: containerView)
+            .centerX(equalTo: containerView)
+            
+        logoImageView.image = LoginConstants.loginLogo.imageInBundle
     }
     
     func setUpUsernameTextField() {
         containerView.add(subview: usernameTextField)
             .leading(equalTo: containerView, constant: LoginConstants.appMargin)
             .trailing(equalTo: containerView, constant: LoginConstants.appMargin)
-        
-        let constraint = usernameTextField.topAnchor.constraint(
-            equalTo: containerView.topAnchor,
-            constant: LoginConstants.usernameTextFieldTopDistance
-        )
-        constraint.isActive = true
-        usernameTextFieldTopConstraint = constraint
-    }
-    
-    func setUpLogoImage() {
-        containerView.add(subview: logoImageView)
-            .bottom(equalTo: usernameTextField.topAnchor, constant: 40)
-            .centerX(equalTo: containerView)
-            
-        logoImageView.image = LoginConstants.loginLogo.imageInBundle
+            .top(equalTo: logoImageView.bottomAnchor, constant: 40)
+            .height(greaterThanOrEqualTo: LoginConstants.heightOfTextField)
     }
     
     func setUpPasswordTextField() {
@@ -173,6 +184,7 @@ private extension  LoginViewController {
             .leading(equalTo: containerView, constant: LoginConstants.appMargin)
             .trailing(equalTo: containerView, constant: LoginConstants.appMargin)
             .top(equalTo: usernameTextField.bottomAnchor, constant: 24)
+            .height(greaterThanOrEqualTo: LoginConstants.heightOfTextField)
     }
     
     func setUpLoginButton() {
@@ -181,15 +193,16 @@ private extension  LoginViewController {
             .trailing(equalTo: containerView, constant: LoginConstants.appMargin)
             .top(equalTo: passwordTextField.bottomAnchor, constant: 24)
             .height(greaterThanOrEqualTo: AppConstants.appleMinimimWidthHeight)
+            .bottom(equalTo: containerView)
             // Apple recomends 44 design uses 40
             // find out which height to use
         
         loginButton.rx.tap.subscribe(onNext: { [unowned self] _ in
             guard self.input.isValidInput else {
-                self.handleError(error: LocalizedKeys.enterUsernamePassword)
+                handleError(error: LocalizedKeys.enterUsernamePassword)
                 return
             }
-            self.viewAction.accept(.loginButtonPressed(input: self.input))
+            viewAction.accept(.loginButtonPressed(input: self.input))
         })
         .disposed(by: disposeBag)
     }
@@ -254,14 +267,14 @@ private extension  LoginViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        usernameTextFieldTopConstraint?.constant = LoginConstants.usernameTextFieldTopReducedDistance
+        containerCenterYConstraint?.constant = LoginConstants.containerCenterYOffset
         UIView.animate(withDuration: 0.4, animations: { [weak self] in
             self?.view.layoutIfNeeded()
         })
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        usernameTextFieldTopConstraint?.constant = LoginConstants.usernameTextFieldTopDistance
+        containerCenterYConstraint?.constant = LoginConstants.containerCenterY
         UIView.animate(withDuration: 0.4, animations: { [weak self] in
             self?.view.layoutIfNeeded()
         })
@@ -340,11 +353,11 @@ private extension LoginViewController {
         .subscribe(onNext: { [unowned self] effect in
             switch effect {
             case .success:
-                self.stopLoadingAnimations()
+                stopLoadingAnimations()
             case .loading:
-                self.startLoadingAnimations()
+                startLoadingAnimations()
             case .error(let error):
-                self.handleError(error: error)
+                handleError(error: error)
             }
         })
         .disposed(by: disposeBag)}
