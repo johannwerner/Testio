@@ -34,11 +34,11 @@ final class LoginViewController: UIViewController {
         return textField
     }()
     
-    private let loginButton: UIButton = {
-        let loginButton = UIButton()
-        loginButton.layer.cornerRadius = LoginConstants.cornerRadius
+    private let loginButton: TOButton = {
+        let loginButton = TOButton()
         loginButton.setTitle(LocalizedKeys.login, for: .normal)
         loginButton.backgroundColor = ColorTheme.primaryInteractiveColor
+        loginButton.highlightedBackgroundColor = ColorTheme.primaryInteractiveHighlightColor
         loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         return loginButton
     }()
@@ -102,6 +102,8 @@ private extension  LoginViewController {
             if success {
                 DispatchQueue.main.async {
                     let input = LoginInputModel(username: username, password: password)
+                    self?.usernameTextField.text = username
+                    self?.passwordTextField.text = password
                     self?.viewAction.accept(.loginButtonPressed(input: input))
                 }
             }
@@ -148,16 +150,10 @@ private extension  LoginViewController {
             .leading(equalTo: containerView, constant: LoginConstants.appMargin)
             .trailing(equalTo: containerView, constant: LoginConstants.appMargin)
         
-        let constraint = NSLayoutConstraint(
-            item: usernameTextField,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: containerView,
-            attribute: .top,
-            multiplier: 1,
-            constant: 221
+        let constraint = usernameTextField.topAnchor.constraint(
+            equalTo: containerView.topAnchor,
+            constant: LoginConstants.usernameTextFieldTopDistance
         )
-        view.addConstraint(constraint)
         constraint.isActive = true
         usernameTextFieldTopConstraint = constraint
     }
@@ -254,14 +250,14 @@ private extension  LoginViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        usernameTextFieldTopConstraint?.constant = 100
+        usernameTextFieldTopConstraint?.constant = LoginConstants.usernameTextFieldTopReducedDistance
         UIView.animate(withDuration: 0.4, animations: { [weak self] in
             self?.view.layoutIfNeeded()
         })
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        usernameTextFieldTopConstraint?.constant = 221
+        usernameTextFieldTopConstraint?.constant = LoginConstants.usernameTextFieldTopDistance
         UIView.animate(withDuration: 0.4, animations: { [weak self] in
             self?.view.layoutIfNeeded()
         })

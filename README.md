@@ -21,8 +21,9 @@ The idea was to give these modeles comply separate with no depencies between the
 The View Controller (handles view logic)
 The View Model (handles business logic)
 The use case would fetch get the data from the interactor and handle the data before giving data to the View model.
-The interactor api would fetch the data from the backend or local database. 
-The interacor is a protocol so for testing purposes you could use an interactor which mocks the data for testing purposes. 
+The interactor api would fetch the data from the backend or local database and conforms to the interactor protocol. 
+The interactor is a protocol so for testing purposes you could use an interactor which mocks the data for testing purposes. 
+
 Disadvantages of this achiteture
 - difficult for new people to quickly learn it
 - lots of files
@@ -45,9 +46,7 @@ In some cases the naming of variables and functions are not optimised. Usually I
 ## Still to do
 
 A few things I missed because of time constraints
-- icons for the buttons in the navigation bar
 - proper error handling, didn't have time to dive into Rxswift error handling. 
-- animation of filter view can be improved.
 
 ## Known issues
 
@@ -58,7 +57,7 @@ A few things I missed because of time constraints
 
 ## TOComponents
 
-TOComponents was created as a framework
+TOComponents was created as a framework so it can be reused in the future.
 
 ## Limitations of testing
 Due to the fact that swift package manager has no control over its packages and swiftrx includes arm64 achitecture when running on simulator I was unable to test on simulator and therefore I only tested on iPhone 7, iPhone 8 and iPhone 6s

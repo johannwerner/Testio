@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class TOActivityIndicator: UIView {
+open class TOActivityIndicator: UIView {
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
     private let label = UILabel()
     var text: String? {
@@ -27,7 +27,7 @@ public class TOActivityIndicator: UIView {
         setUpViews()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         setUpViews()
     }

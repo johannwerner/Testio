@@ -1,6 +1,7 @@
 import RxSwift
 import RxCocoa
 import UIKit
+import TOComponents
 
 /// An introduction to my coding challenge
 /// - Requires: `RxSwift`, `RxCocoa`
@@ -12,7 +13,15 @@ final class IntroductionViewController: UIViewController {
     private let viewAction = PublishRelay<IntroductionModuleViewAction>()
     
     // MARK: View components
-    private let primaryButton = UIButton()
+    private let primaryButton: TOButton = {
+        let primaryButton = TOButton()
+        primaryButton.setTitle(LocalizedKeys.introductionButton, for: .normal)
+        primaryButton.backgroundColor = ColorTheme.primaryInteractiveColor
+        primaryButton.highlightedBackgroundColor = ColorTheme.primaryInteractiveHighlightColor
+        primaryButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        return primaryButton
+    }()
+    
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let activityIndicator = UIActivityIndicatorView()
@@ -100,11 +109,6 @@ private extension  IntroductionViewController {
         primaryButton.layer.cornerRadius = 4.0
 
         primaryButton.backgroundColor = ColorTheme.primaryInteractiveColor
-
-        primaryButton.setTitle(
-            LocalizedKeys.introductionButton,
-            for: .normal
-        )
 
         primaryButton.rx.tap.subscribe(onNext: { [unowned self] _ in
             self.viewAction.accept(.primaryButtonPressed)

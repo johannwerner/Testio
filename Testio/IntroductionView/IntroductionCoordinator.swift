@@ -40,6 +40,7 @@ extension  IntroductionCoordinator {
 
 extension  IntroductionCoordinator {
     func showLogin(animated: Bool) {
+        UserDefaultsProvider.hideIntroduction = true
         let interactor = LoginInteractorApi()
         let configurator = LoginConfigurator(loginInteractor: interactor)
         let coordinator = LoginCoordinator(

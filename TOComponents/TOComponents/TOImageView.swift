@@ -7,13 +7,13 @@
 
 import UIKit
 
-public class TOImageView: UIImageView {
+open class TOImageView: UIImageView {
     public init (contentMode: ContentMode = .scaleAspectFit) {
         super.init(frame: .zero)
         self.contentMode = contentMode
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         contentMode = .scaleAspectFill
     }

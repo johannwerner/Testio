@@ -67,6 +67,7 @@ public extension TOBarButtonView {
     }
 
     func addButtonLabel() {
+        translatesAutoresizingMaskIntoConstraints = false
         add(subview: button)
             .leading(equalTo: self)
             .trailing(equalTo: self, constant: 5)

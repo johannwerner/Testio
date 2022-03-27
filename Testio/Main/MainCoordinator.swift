@@ -73,7 +73,6 @@ extension  MainCoordinator {
     }
     
     func showIntroduction(navigationController: UINavigationController, animated: Bool) {
-        UserDefaultsProvider.hideIntroduction = true
         let interactor = IntroductionInteractorApi()
         let configurator = IntroductionConfigurator(introductionInteractor: interactor)
         let coordinator = IntroductionCoordinator(

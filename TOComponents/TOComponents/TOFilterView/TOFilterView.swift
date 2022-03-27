@@ -145,10 +145,9 @@ private extension TOFilterView {
             equalTo: tableView.bottomAnchor,
             constant: -heightOfTableViewOffset
         )
-        constraint.priority = .required
         constraint.isActive = true
         
-        self.tableViewConstraint = constraint
+        tableViewConstraint = constraint
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseId)
         tableView.dataSource = self

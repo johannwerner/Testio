@@ -13,7 +13,7 @@ public enum TextFieldType {
     case password
 }
 
-public class TOTextField: UITextField {
+open class TOTextField: UITextField {
     // MARK: Properties
     var textFieldType: TextFieldType {
         didSet {

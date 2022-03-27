@@ -26,7 +26,8 @@ struct LoginConstants {
     static let usernameIconImage = "symbol"
     static let passwordIconImage = "security"
     static let appMargin: CGFloat = 32
-    static let cornerRadius: CGFloat = 10
+    static let usernameTextFieldTopDistance: CGFloat = 221
+    static let usernameTextFieldTopReducedDistance: CGFloat = 100
 }
 
 struct LoginInputModel {

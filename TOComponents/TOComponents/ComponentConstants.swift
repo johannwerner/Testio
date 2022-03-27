@@ -14,4 +14,5 @@ struct ComponentConstants {
     static let filterViewTableViewPadding: CGFloat = 8
     static let cornerRadius: CGFloat = 10
     static let animationDuration = 0.3
+    static let buttonCornerRadius: CGFloat = 10
 }
