@@ -62,7 +62,7 @@ private extension LoginViewModel {
                 case .error(let error):
                     self.viewEffect.accept(.error(error))
                 case .success(let model):
-        
+                    self.handleResponse(input: input, model: model)
                     self.getServers(input: model)
                 }
             })

@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Testio
-//
-//  Created by Johann Werner on 22.03.22.
-//
-
 import UIKit
 
 @main
@@ -41,6 +34,6 @@ private extension AppDelegate {
           
     func showMain(navigationController: UINavigationController) {
         let coordinator = MainCoordinator(navigationController: navigationController)
-        coordinator.showMain(animated: true)
+        coordinator.start(animated: true)
     }
 }

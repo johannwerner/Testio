@@ -47,10 +47,11 @@ extension  LoginCoordinator {
             navigationController: navigationController,
             configurator: configurator
         )
-        coordinator.showServerList(
+        let model = ServerListModel(
             servers: servers,
             token: token,
-            animated: true
+            fetchFromCache: false
         )
+        coordinator.showServerList(model: model, animated: true)
     }
 }

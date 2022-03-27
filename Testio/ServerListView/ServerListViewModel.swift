@@ -39,10 +39,8 @@ final class ServerListViewModel {
         self.coordinator = coordinator
         self.useCase = ServerListUseCase(interactor: configurator.serverListInteractor)
         self.model = model
-        // in case of null values from the server only show servers with values
-        
         observeViewEffect()
-        fetchServersFromCache()
+        fetchData()
     }
 }
 
@@ -105,6 +103,14 @@ private extension ServerListViewModel {
             } catch {}
         }
         coordinator.showLogin()
+    }
+    
+    func fetchData() {
+        if model.fetchFromCache {
+            fetchServersFromCache()
+        } else {
+            self.servers = model.servers
+        }
     }
     
     func fetchServersFromCache() {

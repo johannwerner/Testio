@@ -1,8 +1,3 @@
-//
-//  KeychainProvider.swift
-//  Testio
-//
-//  Created by Johann Werner on 25.03.22.
 // This class was created by taking inspiration from https://www.raywenderlich.com/11496196-how-to-secure-ios-user-data-keychain-services-and-biometrics-with-swiftui and
 // https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_in_the_keychain
 

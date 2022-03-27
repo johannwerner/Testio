@@ -23,8 +23,7 @@ final class ServerListCoordinator {
 // MARK: - Navigation IN
 
 extension  ServerListCoordinator {
-    func showServerList(servers: [Server], token: String, animated: Bool) {
-        let model = ServerListModel(servers: servers, token: token)
+    func showServerList(model: ServerListModel, animated: Bool) {
         let viewModel = ServerListViewModel(
             coordinator: self,
             configurator: configurator,

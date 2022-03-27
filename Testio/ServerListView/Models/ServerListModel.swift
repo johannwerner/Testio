@@ -24,6 +24,7 @@ struct ServerListModel {
     var servers: [Server]
     var token: String
     var sort: ServerListSort = .distance
+    var fetchFromCache: Bool
 }
 
 struct ServerConstants {

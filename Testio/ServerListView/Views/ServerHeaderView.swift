@@ -1,10 +1,3 @@
-//
-//  ServerHeaderView.swift
-//  Testio
-//
-//  Created by Johann Werner on 24.03.22.
-//
-
 import UIKit
 
 final class ServerHeaderView: UIView {

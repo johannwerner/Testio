@@ -1,10 +1,3 @@
-//
-//  ServerPersistentModel.swift
-//  Testio
-//
-//  Created by Johann Werner on 26.03.22.
-//
-
 import Foundation
 import CoreData
 import UIKit
@@ -29,9 +22,8 @@ final class ServerPersistentModel {
         guard let distance = server.distance else {
             return
         }
-
         let managedContext = persistentContainer.viewContext
-
+        
         guard let entity =
         NSEntityDescription.entity(
             forEntityName: CoreDataConstants.serverCache,
