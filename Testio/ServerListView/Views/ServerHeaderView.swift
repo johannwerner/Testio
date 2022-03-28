@@ -1,20 +1,21 @@
 import UIKit
 
 final class ServerHeaderView: UIView {
-    let serverLabel: UILabel = {
+    // MARK: - Properties
+    private let serverLabel: UILabel = {
         let label = UILabel()
         label.textColor = ColorTheme.tableViewSectionHeaderTextColor
         label.font = UIFont.preferredFont(forTextStyle: .caption2)
         return label
     }()
-    let distanceLabel: UILabel = {
+    private let distanceLabel: UILabel = {
         let label = UILabel()
         label.textColor = ColorTheme.tableViewSectionHeaderTextColor
         label.font = UIFont.preferredFont(forTextStyle: .caption2)
         return label
     }()
-
     
+    // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpViews()
@@ -26,7 +27,16 @@ final class ServerHeaderView: UIView {
     }
 }
 
+// MARK: - Public
 extension ServerHeaderView {
+    func fill(serverTitle: String, distanceTitle: String) {
+        serverLabel.text = serverTitle
+        distanceLabel.text = distanceTitle
+    }
+}
+
+// MARK: - Private
+private extension ServerHeaderView {
     func setUpViews() {
         backgroundColor = ColorTheme.tableViewBackgroundColor
         addServerLabel()

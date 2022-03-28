@@ -79,8 +79,10 @@ extension ServerListViewController: UITableViewDataSource {
 extension ServerListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader = ServerHeaderView()
-        sectionHeader.serverLabel.text = LocalizedKeys.server.uppercased()
-        sectionHeader.distanceLabel.text = LocalizedKeys.distance.uppercased()
+        sectionHeader.fill(
+            serverTitle: LocalizedKeys.server.uppercased(),
+            distanceTitle: LocalizedKeys.distance.uppercased()
+        )
         return sectionHeader
     }
 }

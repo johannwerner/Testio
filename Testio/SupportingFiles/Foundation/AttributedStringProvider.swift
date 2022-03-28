@@ -25,7 +25,11 @@ extension AttributedStringProvider {
     ///   - stringWithTags: string that will be converted to attributed string. Should contain html tags or custom tag
     ///   - attributesForBold: required for bold tag because font size is unknown. Pass through [NSAttributedString.Key.font: BoldFont]
     ///   - attributesForCustom: required for custom tag
-    static func convertStringToAttributedString(_ stringWithTags: String, attributesForBold: [NSAttributedString.Key: Any]? = nil, attributesForCustom: [NSAttributedString.Key: Any]? = nil) -> NSMutableAttributedString {
+    static func convertStringToAttributedString(
+        _ stringWithTags: String,
+        attributesForBold: [NSAttributedString.Key: Any]? = nil,
+        attributesForCustom: [NSAttributedString.Key: Any]? = nil
+    ) -> NSMutableAttributedString {
         handleAllTags(
             stringWithTags: stringWithTags,
             attributesForBold: attributesForBold,
@@ -36,7 +40,11 @@ extension AttributedStringProvider {
 
 // MARK: - Private
 private extension AttributedStringProvider {
-    static func handleAllTags(stringWithTags: String, attributesForBold: [NSAttributedString.Key: Any]?, attributesForCustom: [NSAttributedString.Key: Any]?) -> NSMutableAttributedString {
+    static func handleAllTags(
+        stringWithTags: String,
+        attributesForBold: [NSAttributedString.Key: Any]?,
+        attributesForCustom: [NSAttributedString.Key: Any]?
+    ) -> NSMutableAttributedString {
         var attributedString = NSMutableAttributedString(string: stringWithTags)
         supportedTags[boldTag] = attributesForBold
         supportedTags[customTag] = attributesForCustom
@@ -52,7 +60,11 @@ private extension AttributedStringProvider {
         return attributedString
     }
     
-    static func handleTag(_ attributes: [NSAttributedString.Key: Any], tag: String, attributedString: inout NSMutableAttributedString) {
+    static func handleTag(
+        _ attributes: [NSAttributedString.Key: Any],
+        tag: String,
+        attributedString: inout NSMutableAttributedString
+    ) {
         let stringToFindRange = attributedString.string as NSString
         let openRange = stringToFindRange.range(of: tag)
         
@@ -83,11 +95,19 @@ private extension AttributedStringProvider {
         if openRange.location > closedRange.location {
             // open tag is after closing tag. Remove closing tag and start again.
             removeTags(openRange: nil, closedRange: closedRange, attributedString: &attributedString)
-            handleTag(attributes, tag: tag, attributedString: &attributedString)
+            handleTag(
+                attributes,
+                tag: tag,
+                attributedString: &attributedString
+            )
             return
         }
         
-        removeTags(openRange: openRange, closedRange: closedRange, attributedString: &attributedString)
+        removeTags(
+            openRange: openRange,
+            closedRange: closedRange,
+            attributedString: &attributedString
+        )
         
         let combinedRange = NSRange(
             location: openRange.location,
@@ -98,7 +118,11 @@ private extension AttributedStringProvider {
         handleTag(attributes, tag: tag, attributedString: &attributedString)
     }
      
-    static func removeTags(openRange: NSRange?, closedRange: NSRange?, attributedString: inout NSMutableAttributedString) {
+    static func removeTags(
+        openRange: NSRange?,
+        closedRange: NSRange?,
+        attributedString: inout NSMutableAttributedString
+    ) {
         if let closeRange = closedRange {
             attributedString.deleteCharacters(in: closeRange)
         }

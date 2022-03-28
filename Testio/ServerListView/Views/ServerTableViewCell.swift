@@ -32,6 +32,7 @@ final class ServerTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - Public
 extension ServerTableViewCell {
     func fill(server: Server) {
         serverNameLabel.text = server.name
@@ -41,6 +42,7 @@ extension ServerTableViewCell {
     }
 }
 
+// MARK: - Private
 private extension ServerTableViewCell {
     func setUpViews() {
         selectionStyle = .none
