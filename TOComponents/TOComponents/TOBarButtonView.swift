@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import TOLogger
 
 public enum BarButtonViewImagePosition {
     case left(UIImage?)
@@ -85,7 +86,7 @@ public extension TOBarButtonView {
 private extension UIButton {
     func addRightImage(image: UIImage?, highlightedColor: UIColor) {
         guard let image = image else {
-            return
+            return Logger.logError("image is nil")
         }
         setImage(image, for: .normal)
         imageView?.translatesAutoresizingMaskIntoConstraints = false

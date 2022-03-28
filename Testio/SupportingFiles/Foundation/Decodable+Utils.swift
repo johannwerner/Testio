@@ -1,10 +1,12 @@
 import Foundation
+import TOLogger
 
 // MARK: Decodable
 
 public extension Decodable {
     static func parse(from item: Any?, strategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) -> Self? {
         guard let data = self.data(from: item) else {
+            Logger.logWarning("data is nil")
             return nil
         }
         

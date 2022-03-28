@@ -5,6 +5,7 @@
 import Foundation
 import CoreData
 import UIKit
+import TOLogger
 
 enum CoreDataResult<T> {
     case success(T)
@@ -26,9 +27,11 @@ final class ServerPersistentModel {
     
     func save(server: Server) {
         guard let name = server.name else {
+            Logger.logWarning("server.name is nil")
             return
         }
         guard let distance = server.distance else {
+            Logger.logWarning("server.distance is nil")
             return
         }
         let managedContext = persistentContainer.viewContext
@@ -38,7 +41,7 @@ final class ServerPersistentModel {
             forEntityName: CoreDataConstants.serverCache,
             in: managedContext
         ) else {
-            return
+            return Logger.logWarning("entity is nil")
         }
         
         let server = NSManagedObject(

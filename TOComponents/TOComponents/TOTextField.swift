@@ -1,4 +1,5 @@
 import UIKit
+import TOLogger
 
 public enum TextFieldType {
     case standard
@@ -91,7 +92,7 @@ private extension TOTextField {
     
     func setPlaceholder(placeholder: String?) {
         guard let placeholder = placeholder else {
-            return
+            return Logger.logError("placeholder is nil")
         }
         let attributedString = NSAttributedString(
             string: placeholder,
@@ -104,6 +105,7 @@ private extension TOTextField {
         guard let icon = icon else {
             leftViewMode = .never
             leftView = nil
+            Logger.logError("image is nil")
             return
         }
         let view = UIView(frame: CGRect(x: 0, y: 0, width: iconSize + iconRightPadding, height: iconSize))

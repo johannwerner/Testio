@@ -1,6 +1,7 @@
 import RxSwift
+import TOLogger
 /// Server Use case
-/// - Requires: RxSwift
+/// - Requires: `RxSwift`, `TOLogger`
 final class ServerListUseCase {
     // MARK: Dependencies
     private let interactor: ServerListInteractor
@@ -23,6 +24,7 @@ extension ServerListUseCase {
                     return .loading
                 case .success(let data):
                     guard let servers = data as? [Server] else {
+                        Logger.logError("data is not of type [Server]")
                         return .error(nil)
                     }
                     let serversSorted = servers.filter { $0.name != nil && $0.distance != nil }
@@ -41,6 +43,7 @@ extension ServerListUseCase {
                     return .loading
                 case .success(let data):
                     guard let servers = [Server].parse(from: data) else {
+                        Logger.logError("failed to parse data json")
                         return .error(nil)
                     }
                     ServerPersistentModel.shared.deleteAllServers()

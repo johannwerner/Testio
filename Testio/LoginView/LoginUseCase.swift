@@ -1,7 +1,8 @@
 import RxSwift
 import Alamofire
+import TOLogger
 /// Login Use case
-/// - Requires: `RxSwift`, `Alamofire`
+/// - Requires: `RxSwift`, `Alamofire`,  `TOLogger`
 final class LoginUseCase {
     // MARK: Dependencies
     private let interactor: LoginInteractor
@@ -24,6 +25,7 @@ extension LoginUseCase {
                     return .loading
                 case .success(let data):
                     guard let responseModel = TokenModel.parse(from: data) else {
+                        Logger.logError("responseModel is nil")
                         return .error(nil)
                     }
                     return .success(responseModel)
@@ -41,6 +43,7 @@ extension LoginUseCase {
                     return .loading
                 case .success(let data):
                     guard let servers = [Server].parse(from: data) else {
+                        Logger.logError("failed to parse servers from data")
                         return .error(nil)
                     }
                     ServerPersistentModel.shared.deleteAllServers()

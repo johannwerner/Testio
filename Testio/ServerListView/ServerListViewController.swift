@@ -2,6 +2,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 import TOComponents
+import TOLogger
 
 /// Server List View
 /// - Requires: `RxSwift`, `RxCocoa`,  `UIKit`, `TOComponents`
@@ -65,6 +66,7 @@ extension ServerListViewController: UITableViewDataSource {
             withIdentifier: ServerTableViewCell.reuseId,
             for: indexPath
         ) as? ServerTableViewCell else {
+            Logger.logError("cell is not typeServerTableViewCell ")
             return UITableViewCell()
         }
         let server = viewModel.serverAt(indexPath: indexPath)
