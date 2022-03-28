@@ -224,7 +224,7 @@ private extension  LoginViewController {
     
     func resetView() {
         loginButton.isHidden = false
-        UIView.animate(withDuration: 0.2, animations: { [weak self]  in
+        UIView.animate(withDuration: AppConstants.animationDuration, animations: { [weak self]  in
             self?.containerView.alpha = 1.0
             self?.loginButton.alpha = 1.0
         })
@@ -268,7 +268,7 @@ private extension  LoginViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         containerCenterYConstraint?.constant = LoginConstants.containerCenterYOffset
-        UIView.animate(withDuration: 0.4, animations: { [weak self] in
+        UIView.animate(withDuration: AppConstants.animationDuration, animations: { [weak self] in
             self?.view.layoutIfNeeded()
         })
     }
