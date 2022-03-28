@@ -52,11 +52,3 @@ struct LoginInputModel {
         return !username.isEmpty && !password.isEmpty
     }
 }
-
-struct TokenModel: Codable {
-    var token: String
-
-    var headers: HTTPHeaders {
-        HTTPHeaders(arrayLiteral: HTTPHeader(name: "Authorization", value: "Bearer \(token)"))
-    }
-}

@@ -12,6 +12,7 @@
 		9306F56B27EA05E6003B6CDC /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306F56A27EA05E6003B6CDC /* ObservableType.swift */; };
 		9306F56D27EA068D003B6CDC /* String+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306F56C27EA068D003B6CDC /* String+App.swift */; };
 		9306F57027EA0749003B6CDC /* Decodable+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306F56F27EA0749003B6CDC /* Decodable+Utils.swift */; };
+		93084CFA27F1C75000770FA2 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93084CF927F1C75000770FA2 /* TokenModel.swift */; };
 		9313CC4527ECA5D80096A6AD /* ServerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313CC4427ECA5D80096A6AD /* ServerHeaderView.swift */; };
 		935BF06827EE020E002757BE /* TOComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 935BF06727EE020E002757BE /* TOComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		935BF06B27EE020E002757BE /* TOComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 935BF06527EE020E002757BE /* TOComponents.framework */; };
@@ -128,6 +129,7 @@
 		9306F56A27EA05E6003B6CDC /* ObservableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		9306F56C27EA068D003B6CDC /* String+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+App.swift"; sourceTree = "<group>"; };
 		9306F56F27EA0749003B6CDC /* Decodable+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decodable+Utils.swift"; sourceTree = "<group>"; };
+		93084CF927F1C75000770FA2 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		9313CC4427ECA5D80096A6AD /* ServerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHeaderView.swift; sourceTree = "<group>"; };
 		935BEFFF27EDF0D3002757BE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		935BF06527EE020E002757BE /* TOComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TOComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +238,7 @@
 		9306F56327EA0538003B6CDC /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				93084CF827F1C73100770FA2 /* SharedModels */,
 				93DB8EF727EF863E0051A462 /* KeyChain */,
 				93DB8EC227EF63130051A462 /* CoreData */,
 				9306F56E27EA0690003B6CDC /* Foundation */,
@@ -257,6 +260,15 @@
 				9306F56C27EA068D003B6CDC /* String+App.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		93084CF827F1C73100770FA2 /* SharedModels */ = {
+			isa = PBXGroup;
+			children = (
+				93FC623727EBA1AF00ED5BF1 /* ServerModel.swift */,
+				93084CF927F1C75000770FA2 /* TokenModel.swift */,
+			);
+			path = SharedModels;
 			sourceTree = "<group>";
 		};
 		935BF06627EE020E002757BE /* TOComponents */ = {
@@ -389,7 +401,6 @@
 			isa = PBXGroup;
 			children = (
 				93982F0327E9FFD900782E86 /* LoginModel.swift */,
-				93FC623727EBA1AF00ED5BF1 /* ServerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -756,6 +767,7 @@
 				93DB8EF527EF855A0051A462 /* CoreDataConstants.swift in Sources */,
 				93FC623827EBA1AF00ED5BF1 /* ServerModel.swift in Sources */,
 				93982F0F27E9FFD900782E86 /* LoginInteractor.swift in Sources */,
+				93084CFA27F1C75000770FA2 /* TokenModel.swift in Sources */,
 				93FC7FBD27F04378005E89BF /* IntroductionUseCase.swift in Sources */,
 				93982F0B27E9FFD900782E86 /* LoginModel.swift in Sources */,
 				9306F57027EA0749003B6CDC /* Decodable+Utils.swift in Sources */,
