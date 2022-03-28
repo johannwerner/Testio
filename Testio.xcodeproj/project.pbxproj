@@ -465,6 +465,7 @@
 				93982EE127E9F87700782E86 /* Resources */,
 				935BF01227EDFF5E002757BE /* Embed Frameworks */,
 				93DB8EEB27EF67C20051A462 /* Lint */,
+				93FC801B27F198B4005E89BF /* Unused */,
 			);
 			buildRules = (
 			);
@@ -591,6 +592,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint --fix\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, install via homebrew brew install swiftlint\"\nfi\n";
+		};
+		93FC801B27F198B4005E89BF /* Unused */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Unused;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "file=\"unused.rb\"\nif [ -f \"$file\" ]\nthen\necho \"$file found.\"\n#ruby unused.rb xcode\nelse\necho \"unused.rb doesn't exist\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

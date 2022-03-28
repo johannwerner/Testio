@@ -62,6 +62,7 @@ open class TOTextField: UITextField {
 
 private extension TOTextField {
     func layoutUI() {
+        tintColor = ColorTheme.textFieldCursorColor
         font = UIFont.systemFont(ofSize: 17)
         layer.cornerRadius = ComponentConstants.cornerRadius
         configureTextfield()
@@ -104,14 +105,6 @@ private extension TOTextField {
             attributes: [NSAttributedString.Key.foregroundColor: ColorTheme.textFieldPlaceholderColor]
         )
         attributedPlaceholder = attributedString
-    }
-    
-    func handleActiveState() {
-        if isActive {
-            setLeftIcon(icon: leftIcon?.withTintColor(ColorTheme.textFieldTextColor))
-        } else {
-            setLeftIcon(icon: leftIcon?.withTintColor(ColorTheme.textFieldPlaceholderColor))
-        }
     }
     
     func setLeftIcon(icon: UIImage?) {

@@ -33,7 +33,6 @@ final class IntroductionViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         return label
     }()
-    private let activityIndicator = UIActivityIndicatorView()
     
     // MARK: Tooling
     private let disposeBag = DisposeBag()
