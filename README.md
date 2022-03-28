@@ -18,6 +18,7 @@ I chose this archtiture mostly to show my skills not only building an app but co
 
 The idea behind the achiteture was to have separe frameworks for components UI which is used by each model. A model is like the login view or the server list view.
 The idea was to give these modeles comply separate with no depencies between them. The only interaction would be by the cooridinator of login to give the ServerListCoordinator the dependencies it requires. One could easily delete a module and the app should still compile as long as the code in the coordinator is removed. 
+The modules are designed in such away that they can be easily removed. 
 
 The View Controller (handles view logic)
 The View Model (handles business logic)
