@@ -36,9 +36,15 @@ public struct UserDefaultsProperty<X: Codable> {
 
 struct UserDefaultsProvider {
     private init() {}
-    @UserDefaultsProperty(userDefaultsKey: "username", initalValue: nil)
+    @UserDefaultsProperty(userDefaultsKey: UserDefaultsKey.username, initalValue: nil)
     public static var username: String?
     
-    @UserDefaultsProperty(userDefaultsKey: "introduction", initalValue: false)
+    @UserDefaultsProperty(userDefaultsKey: UserDefaultsKey.introductionShown, initalValue: false)
     public static var hideIntroduction: Bool
+}
+
+private struct UserDefaultsKey {
+    private init() {}
+    static let username = "username"
+    static let introductionShown = "introduction_shown"
 }

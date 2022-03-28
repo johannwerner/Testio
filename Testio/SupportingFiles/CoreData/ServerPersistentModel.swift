@@ -27,11 +27,11 @@ final class ServerPersistentModel {
     
     func save(server: Server) {
         guard let name = server.name else {
-            Logger.logWarning("server.name is nil")
+            Logger.logError("server.name is nil")
             return
         }
         guard let distance = server.distance else {
-            Logger.logWarning("server.distance is nil")
+            Logger.logError("server.distance is nil")
             return
         }
         let managedContext = persistentContainer.viewContext
@@ -41,7 +41,7 @@ final class ServerPersistentModel {
             forEntityName: CoreDataConstants.serverCache,
             in: managedContext
         ) else {
-            return Logger.logWarning("entity is nil")
+            return Logger.logError("entity is nil")
         }
         
         let server = NSManagedObject(

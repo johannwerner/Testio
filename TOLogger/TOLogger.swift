@@ -21,7 +21,7 @@ public class Logger {
             switch loggerState {
             case .showAll: break
             case .showOnlyError:
-                Logger.printString("🪵 Only showing logs for erros")
+                Logger.printString("🪵 Only showing logs for errors")
             case .showOnlyWarnings:
                 Logger.printString("🪵 Only showing logs for warnings")
             case .showWarningsErrors:

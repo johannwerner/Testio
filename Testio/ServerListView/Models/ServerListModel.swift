@@ -3,8 +3,8 @@ import CoreGraphics
 /// Operation status enum for  ServiceListView.
 enum ServerListStatus {
     case loading
-    case error
-    case success
+    case error(String?)
+    case success([Server])
 }
 
 /// View effect enum for  ServiceListView.

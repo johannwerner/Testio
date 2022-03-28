@@ -53,6 +53,10 @@ final class ServerListViewController: UIViewController {
         setUpBinding()
         observeViewEffect()
     }
+    
+    deinit {
+        print("dinit \(self)")
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -66,7 +70,7 @@ extension ServerListViewController: UITableViewDataSource {
             withIdentifier: ServerTableViewCell.reuseId,
             for: indexPath
         ) as? ServerTableViewCell else {
-            Logger.logError("cell is not typeServerTableViewCell ")
+            Logger.logError("cell is not typeServerTableViewCell")
             return UITableViewCell()
         }
         let server = viewModel.serverAt(indexPath: indexPath)

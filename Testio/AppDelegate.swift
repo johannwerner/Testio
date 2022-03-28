@@ -1,4 +1,5 @@
 import UIKit
+import TOLogger
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +34,7 @@ private extension AppDelegate {
     }
           
     func showMain(navigationController: UINavigationController) {
+        Logger.loggerState = .showWarningsErrors
         let coordinator = MainCoordinator(navigationController: navigationController)
         coordinator.start(animated: true)
     }
