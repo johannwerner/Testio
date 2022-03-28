@@ -2,16 +2,16 @@ import Foundation
 import UIKit
 
 @propertyWrapper
-public struct UserDefaultsProperty<X: Codable> {
+struct UserDefaultsProperty<X: Codable> {
     private let userDefaultsKey: String
     private let initalValue: X
 
-    public init(userDefaultsKey: String, initalValue: X) {
+    init(userDefaultsKey: String, initalValue: X) {
         self.userDefaultsKey = userDefaultsKey
         self.initalValue = initalValue
     }
 
-    public var wrappedValue: X {
+    var wrappedValue: X {
         get {
             guard let data = UserDefaults.standard.object(forKey: userDefaultsKey) as? Data else {
                 if let value = UserDefaults.standard.object(forKey: userDefaultsKey) as? X {
