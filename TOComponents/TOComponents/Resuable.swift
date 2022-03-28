@@ -1,10 +1,3 @@
-//
-//  Resuable.swift
-//  Testio
-//
-//  Created by Johann Werner on 24.03.22.
-//
-
 import Foundation
 import UIKit
 

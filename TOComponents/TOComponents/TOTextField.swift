@@ -1,10 +1,3 @@
-//
-//  TOTextField.swift
-//  Testio
-//
-//  Created by Johann Werner on 23.03.22.
-//
-
 import UIKit
 
 public enum TextFieldType {

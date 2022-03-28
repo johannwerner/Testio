@@ -1,10 +1,3 @@
-//
-//  TOFilterView.swift
-//  Testio
-//
-//  Created by Johann Werner on 25.03.22.
-//
-
 import UIKit
 
 final public class TOFilterView: UIView {

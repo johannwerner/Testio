@@ -1,10 +1,3 @@
-//
-//  TOButton.swift
-//  TOComponents
-//
-//  Created by Johann Werner on 27.03.22.
-//
-
 import Foundation
 import UIKit
 

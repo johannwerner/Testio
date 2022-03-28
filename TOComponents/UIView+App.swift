@@ -1,10 +1,3 @@
-//
-//  UIView+App.swift
-//  Testio
-//
-//  Created by Johann Werner on 22.03.22.
-//
-// swiftlint:disable file_length
 import UIKit
 
 // MARK: - Layout helpers
