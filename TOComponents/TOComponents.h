@@ -1,10 +1,3 @@
-//
-//  TOComponents.h
-//  TOComponents
-//
-//  Created by Johann Werner on 25.03.22.
-//
-
 #import <Foundation/Foundation.h>
 
 //! Project version number for TOComponents.
