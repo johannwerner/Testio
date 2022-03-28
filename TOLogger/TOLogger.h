@@ -1,10 +1,3 @@
-//
-//  TOLogger.h
-//  TOLogger
-//
-//  Created by Johann Werner on 28.03.22.
-//
-
 #import <Foundation/Foundation.h>
 
 //! Project version number for TOLogger.
