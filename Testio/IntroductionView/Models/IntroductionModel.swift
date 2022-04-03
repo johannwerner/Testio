@@ -1,11 +1,4 @@
 import CoreGraphics
-/// Operation status enum for  IntroductionModule.
-enum IntroductionModuleStatus {
-    case loading
-    case error
-    case success
-}
-
 /// View effect enum for  IntroductionModule.
 enum IntroductionModuleViewEffect {
     case success

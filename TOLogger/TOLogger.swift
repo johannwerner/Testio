@@ -8,7 +8,7 @@ public enum LoggerState {
 }
 
 public class Logger {
-    private init() { }
+    private init() {}
     
     /// Use this to show all, or hide some warnings.
     /// - showAll - Shows all prints
@@ -30,14 +30,14 @@ public class Logger {
         }
     }
     
-    /// prints the error.localizedDescription) in console with a 🛑 emoji only in debug configuration.
+    /// prints the error.localizedDescription in console with a 🛑 emoji only in debug configuration.
     public static func log(_ error: NSError, file: String = #file, line: Int = #line, column: Int = #column) {
         if showErrors {
             logError(error.localizedDescription, file: file, line: line, column: column)
         }
     }
     
-    /// prints the error.localizedDescription) in console with a 🛑 emoji only in debug configuration.
+    /// prints the error.localizedDescription in console with a 🛑 emoji only in debug configuration.
     public static func log(_ error: Error, file: String = #file, line: Int = #line, column: Int = #column) {
         if showErrors {
             logError(error.localizedDescription, file: file, line: line, column: column)
@@ -64,14 +64,6 @@ public class Logger {
             print(" @ \(fileName(from: file))", "\(line):\(column)")
             #endif
         }
-    }
-    
-    private static func printString(_ string: String, file: String = #file, line: Int = #line, column: Int = #column) {
-        #if targetEnvironment(simulator)
-        print("\(string)", "@ \(fileName(from: file))", "\(line):\(column)")
-        #elseif DEBUG
-        print("\(string)", "@ \(fileName(from: file))", "\(line):\(column)")
-        #endif
     }
     
     /// prints the string with a 🛑 emoji only in debug configuration.
@@ -112,5 +104,13 @@ private extension Logger {
     
     static func fileName(from string: String) -> String {
         String(string.split(separator: "/").last ?? "")
+    }
+    
+    static func printString(_ string: String, file: String = #file, line: Int = #line, column: Int = #column) {
+        #if targetEnvironment(simulator)
+        print("\(string)", "@ \(fileName(from: file))", "\(line):\(column)")
+        #elseif DEBUG
+        print("\(string)", "@ \(fileName(from: file))", "\(line):\(column)")
+        #endif
     }
 }
