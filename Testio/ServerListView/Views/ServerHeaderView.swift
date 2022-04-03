@@ -2,16 +2,19 @@ import UIKit
 
 final class ServerHeaderView: UIView {
     // MARK: - Properties
-    private let serverLabel: UILabel = {
+    private let preferredFont = UIFont.preferredFont(forTextStyle: .caption2)
+    // MARK: - Components
+    private lazy var serverLabel: UILabel = {
         let label = UILabel()
         label.textColor = ColorTheme.tableViewSectionHeaderTextColor
-        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.font = preferredFont
         return label
     }()
-    private let distanceLabel: UILabel = {
+    
+    private lazy var distanceLabel: UILabel = {
         let label = UILabel()
         label.textColor = ColorTheme.tableViewSectionHeaderTextColor
-        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.font = preferredFont
         return label
     }()
     

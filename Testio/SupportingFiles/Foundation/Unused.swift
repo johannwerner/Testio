@@ -6,7 +6,6 @@
 //  File not used and not added to target, just used to silence unused false postives and intended postives.
 #if DEBUG
 import Foundation
-import TOComponents
 import UIKit
 
 private var loginViewController: LoginViewController = {

@@ -11,6 +11,7 @@ open class TOActivityIndicator: UIView {
     var text: String? {
         didSet {
             label.text = text
+            accessibilityHint = text
         }
     }
     public var color: UIColor? {
@@ -45,7 +46,6 @@ public extension TOActivityIndicator {
 
 private extension TOActivityIndicator {
     func setUpViews() {
-        accessibilityHint = text
         isAccessibilityElement = true
         setUpActivityIndicator()
         setUpLabel()

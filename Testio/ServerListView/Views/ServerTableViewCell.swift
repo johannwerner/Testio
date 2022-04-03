@@ -2,19 +2,22 @@ import UIKit
 
 final class ServerTableViewCell: UITableViewCell {
     // MARK: - Properties
-    private var serverNameLabel: UILabel = {
+    private let preferredFont = UIFont.preferredFont(forTextStyle: .body)
+    
+    // MARK: - Components
+    private lazy var serverNameLabel: UILabel = {
         let label = UILabel()
         label.adjustsFontForContentSizeCategory = true
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = preferredFont
         label.numberOfLines = 0
         label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return label
     }()
     
-    private var distanceLabel: UILabel = {
+    private lazy var distanceLabel: UILabel = {
         let label = UILabel()
         label.adjustsFontForContentSizeCategory = true
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = preferredFont
         return label
     }()
     

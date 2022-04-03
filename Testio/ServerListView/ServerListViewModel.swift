@@ -122,7 +122,7 @@ private extension ServerListViewModel {
                 case .loading:
                     viewEffect.accept(.loading)
                 case .error:
-                    self.viewEffect.accept(.error)
+                    viewEffect.accept(.error)
                 case .success(let servers):
                     self.servers = servers
                     fetchServersFromApi()
