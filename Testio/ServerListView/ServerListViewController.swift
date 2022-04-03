@@ -106,7 +106,6 @@ private extension  ServerListViewController {
     }
     
     func setUpFilterButton() {
-        tableView.scrollsToTop = true
         let image = ServerConstants.filterButtonImage.imageInBundle
         let filterButtonView = TOBarButtonView(
             imagePosition: .left(image),
@@ -125,12 +124,15 @@ private extension  ServerListViewController {
             target: self,
             action: #selector(doneAction)
         )
+        doneButton.setTitleTextAttributes(
+            [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)],
+            for: .normal
+        )
         navigationItem.leftBarButtonItem = doneButton
     }
 
     @objc func showFilterView() {
         setUpDoneButton()
-        tableView.scrollsToTop = false
         let filterItemByDistance = TOFilterItem(itemText: LocalizedKeys.byDistance)
         let filterItemByAlphabetical = TOFilterItem(itemText: LocalizedKeys.alphabetical)
         let filterView = TOFilterView(items: [filterItemByDistance, filterItemByAlphabetical])

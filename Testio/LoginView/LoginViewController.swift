@@ -85,11 +85,7 @@ final class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNotificationKeyboard()
-        #if targetEnvironment(simulator)
-
-        #else
         setUpBiometricsLogin()
-        #endif
     }
     
     override func viewDidDisappear(_ animated: Bool) {
