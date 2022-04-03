@@ -20,7 +20,7 @@ final class KeychainProvider {
     static let serviceTypeLoginToken = "logintoken"
     static func storeGenericTokenFor(credentials: Credentials, serviceType: String) throws {
         if credentials.token.isEmpty {
-            try deletToken(username: credentials.username, serviceType: serviceType)
+            try deleteToken(username: credentials.username, serviceType: serviceType)
             return
         }
         guard let passwordData = credentials.token.data(using: .utf8) else {
@@ -105,7 +105,7 @@ final class KeychainProvider {
         }
     }
     
-    static func deletToken(username: String, serviceType: String) throws {
+    static func deleteToken(username: String, serviceType: String) throws {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: username,

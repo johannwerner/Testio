@@ -56,7 +56,6 @@ private extension AttributedStringProvider {
                 attributedString: &attributedString
             )
         }
-        
         return attributedString
     }
     

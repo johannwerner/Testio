@@ -14,7 +14,6 @@
 		9306F57027EA0749003B6CDC /* Decodable+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306F56F27EA0749003B6CDC /* Decodable+Utils.swift */; };
 		93084CFA27F1C75000770FA2 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93084CF927F1C75000770FA2 /* TokenModel.swift */; };
 		9313CC4527ECA5D80096A6AD /* ServerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313CC4427ECA5D80096A6AD /* ServerHeaderView.swift */; };
-		935BF06827EE020E002757BE /* TOComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 935BF06727EE020E002757BE /* TOComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		935BF06B27EE020E002757BE /* TOComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 935BF06527EE020E002757BE /* TOComponents.framework */; };
 		935BF06C27EE020E002757BE /* TOComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 935BF06527EE020E002757BE /* TOComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		935BF07E27EE0225002757BE /* ComponentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935BF07227EE0225002757BE /* ComponentConstants.swift */; };
@@ -71,7 +70,6 @@
 		93FC7FC827F04FA1005E89BF /* TestioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FC727F04FA1005E89BF /* TestioTests.swift */; };
 		93FC7FF327F05EE3005E89BF /* TOBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FF227F05EE3005E89BF /* TOBarButtonView.swift */; };
 		93FC7FF527F06909005E89BF /* TOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC7FF427F06909005E89BF /* TOButton.swift */; };
-		93FC802727F1A5D2005E89BF /* TOLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FC802627F1A5D2005E89BF /* TOLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93FC802A27F1A5D2005E89BF /* TOLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FC802427F1A5D2005E89BF /* TOLogger.framework */; };
 		93FC802B27F1A5D2005E89BF /* TOLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FC802427F1A5D2005E89BF /* TOLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93FC803027F1A5DF005E89BF /* TOLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FC802F27F1A5DF005E89BF /* TOLogger.swift */; };
@@ -133,7 +131,6 @@
 		9313CC4427ECA5D80096A6AD /* ServerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHeaderView.swift; sourceTree = "<group>"; };
 		935BEFFF27EDF0D3002757BE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		935BF06527EE020E002757BE /* TOComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TOComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		935BF06727EE020E002757BE /* TOComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOComponents.h; sourceTree = "<group>"; };
 		935BF07227EE0225002757BE /* ComponentConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentConstants.swift; sourceTree = "<group>"; };
 		935BF07427EE0225002757BE /* TOImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOImageView.swift; sourceTree = "<group>"; };
 		935BF07527EE0225002757BE /* Resuable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resuable.swift; sourceTree = "<group>"; };
@@ -192,7 +189,6 @@
 		93FC7FF227F05EE3005E89BF /* TOBarButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOBarButtonView.swift; sourceTree = "<group>"; };
 		93FC7FF427F06909005E89BF /* TOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOButton.swift; sourceTree = "<group>"; };
 		93FC802427F1A5D2005E89BF /* TOLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TOLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93FC802627F1A5D2005E89BF /* TOLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOLogger.h; sourceTree = "<group>"; };
 		93FC802F27F1A5DF005E89BF /* TOLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOLogger.swift; sourceTree = "<group>"; };
 		93FC803827F1B64B005E89BF /* Unused.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Unused.swift; path = Testio/SupportingFiles/Foundation/Unused.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -279,7 +275,6 @@
 				935BF07C27EE0225002757BE /* UIView+App.swift */,
 				935BF07B27EE0225002757BE /* ColorTheme.swift */,
 				935BF07027EE0225002757BE /* TOComponents */,
-				935BF06727EE020E002757BE /* TOComponents.h */,
 			);
 			path = TOComponents;
 			sourceTree = "<group>";
@@ -474,7 +469,6 @@
 		93FC802527F1A5D2005E89BF /* TOLogger */ = {
 			isa = PBXGroup;
 			children = (
-				93FC802627F1A5D2005E89BF /* TOLogger.h */,
 				93FC802F27F1A5DF005E89BF /* TOLogger.swift */,
 			);
 			path = TOLogger;
@@ -487,7 +481,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935BF06827EE020E002757BE /* TOComponents.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +488,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93FC802727F1A5D2005E89BF /* TOLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

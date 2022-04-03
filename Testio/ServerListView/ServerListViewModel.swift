@@ -96,7 +96,7 @@ private extension ServerListViewModel {
     func logout() {
         if let username = UserDefaultsProvider.username {
             do {
-                try KeychainProvider.deletToken(
+                try KeychainProvider.deleteToken(
                     username: username, serviceType:
                         KeychainProvider.serviceTypeLoginToken
                 )
