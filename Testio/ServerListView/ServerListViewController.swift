@@ -53,10 +53,6 @@ final class ServerListViewController: UIViewController {
         setUpBinding()
         observeViewEffect()
     }
-    
-    deinit {
-        print("dinit \(self)")
-    }
 }
 
 // MARK: - UITableViewDataSource

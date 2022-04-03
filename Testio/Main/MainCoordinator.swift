@@ -24,7 +24,6 @@ extension  MainCoordinator {
         } else {
             showIntroduction(navigationController: navigationController, animated: true)
         }
-        return
     }
 }
 
