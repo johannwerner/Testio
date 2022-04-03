@@ -194,11 +194,11 @@ private extension  LoginViewController {
             // find out which height to use
         
         loginButton.rx.tap.subscribe(onNext: { [unowned self] _ in
-            guard self.input.isValidInput else {
+            guard input.isValidInput else {
                 handleError(error: LocalizedKeys.enterUsernamePassword)
                 return
             }
-            viewAction.accept(.loginButtonPressed(input: self.input))
+            viewAction.accept(.loginButtonPressed(input: input))
         })
         .disposed(by: disposeBag)
     }

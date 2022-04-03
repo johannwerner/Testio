@@ -24,7 +24,7 @@ final class LoginViewModel {
         configurator: LoginConfigurator
         ) {
         self.coordinator = coordinator
-        self.useCase = LoginUseCase(interactor: configurator.loginInteractor)
+        useCase = LoginUseCase(interactor: configurator.loginInteractor)
         
         observeViewEffect()
     }

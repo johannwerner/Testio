@@ -37,7 +37,7 @@ final class ServerListViewModel {
         model: ServerListModel
     ) {
         self.coordinator = coordinator
-        self.useCase = ServerListUseCase(interactor: configurator.serverListInteractor)
+        useCase = ServerListUseCase(interactor: configurator.serverListInteractor)
         self.model = model
         observeViewEffect()
         fetchData()
@@ -111,7 +111,7 @@ private extension ServerListViewModel {
         if model.fetchFromCache {
             fetchServersFromCache()
         } else {
-            self.servers = model.servers
+            servers = model.servers
         }
     }
     

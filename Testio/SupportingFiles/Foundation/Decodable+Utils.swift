@@ -5,7 +5,7 @@ import TOLogger
 
 public extension Decodable {
     static func parse(from item: Any?, strategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) -> Self? {
-        guard let data = self.data(from: item) else {
+        guard let data = data(from: item) else {
             Logger.logWarning("data is nil")
             return nil
         }

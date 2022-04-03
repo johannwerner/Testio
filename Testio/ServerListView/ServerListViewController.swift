@@ -18,7 +18,7 @@ final class ServerListViewController: UIViewController {
         let tableView = UITableView()
         tableView.register(ServerTableViewCell.self, forCellReuseIdentifier: ServerTableViewCell.reuseId)
         tableView.backgroundColor = ColorTheme.tableViewBackgroundColor
-        tableView.estimatedRowHeight = 375
+        tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
