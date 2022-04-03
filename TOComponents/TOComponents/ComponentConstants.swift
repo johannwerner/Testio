@@ -8,7 +8,3 @@ struct ComponentConstants {
     static let cornerRadius: CGFloat = 10
     static let animationDuration = 0.3
 }
-
-#if DEBUG
-public func unused(_ items: Any) {}
-#endif

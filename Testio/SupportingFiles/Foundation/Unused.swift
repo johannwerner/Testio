@@ -30,4 +30,6 @@ private func callUnused(run: Bool) {
         callUnused(run: false)
     }
 }
+
+public func unused(_ items: Any) {}
 #endif

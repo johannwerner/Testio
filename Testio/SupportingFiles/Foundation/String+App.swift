@@ -2,6 +2,12 @@ import Foundation
 import UIKit
 
 extension String {
+    var imageInBundle: UIImage? {
+        UIImage(named: self)
+    }
+}
+
+private extension String {
     /// tableName is Localizable,
     /// missing string will be displayed when no value exists.
     func localizedString(_ comment: String = "") -> String {
@@ -11,10 +17,6 @@ extension String {
             value: "missing string: \(self)",
             comment: comment
         )
-    }
-    
-    var imageInBundle: UIImage? {
-        UIImage(named: self)
     }
 }
 
