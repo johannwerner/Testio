@@ -62,7 +62,6 @@ public extension TOBarButtonView {
         case .left(let image):
             button.setImage(image, for: .normal)
             button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 5)
-            button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             if let image = image {
                 button.setImage(image.withTintColor(highlightedColor), for: .highlighted)
             }
