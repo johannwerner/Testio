@@ -57,7 +57,7 @@ open class TOTextField: UITextField {
 private extension TOTextField {
     func layoutUI() {
         tintColor = ColorTheme.textFieldCursorColor
-        font = UIFont.systemFont(ofSize: 17)
+        font = UIFont.preferredFont(forTextStyle: .body)
         layer.cornerRadius = ComponentConstants.cornerRadius
         configureTextfield()
         textColor = ColorTheme.textFieldTextColor
