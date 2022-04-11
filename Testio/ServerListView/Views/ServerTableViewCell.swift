@@ -1,4 +1,5 @@
 import UIKit
+import TOLogger
 
 final class ServerTableViewCell: UITableViewCell {
     // MARK: - Properties
@@ -39,9 +40,7 @@ final class ServerTableViewCell: UITableViewCell {
 extension ServerTableViewCell {
     func fill(server: Server) {
         serverNameLabel.text = server.name
-        if let distance = server.distance {
-            distanceLabel.text = String(format: LocalizedKeys.distancekm, distance)
-        }
+        setDistanceLabelText(distance: server.distance)
     }
 }
 
@@ -76,5 +75,13 @@ private extension ServerTableViewCell {
             .height(equalTo: 0.5)
         
         dividerView.backgroundColor = ColorTheme.tableViewDividerColor
+    }
+    
+    func setDistanceLabelText(distance: Int?) {
+        guard let distance = distance else {
+            distanceLabel.text = ""
+            return Logger.logError("distance is nil")
+        }
+        distanceLabel.text = String(format: LocalizedKeys.distancekm, distance)
     }
 }

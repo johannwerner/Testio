@@ -46,11 +46,12 @@ extension LoginUseCase {
                         Logger.logError("failed to parse servers from data")
                         return .error(nil)
                     }
+                    let serversSorted = servers.filter { $0.name != nil && $0.distance != nil }
                     ServerPersistentModel.shared.deleteAllServers()
-                    for server in servers {
+                    for server in serversSorted {
                         ServerPersistentModel.shared.save(server: server)
                     }
-                    return .success(servers)
+                    return .success(serversSorted)
                 case .error(let error):
                     return .error(error.localizedDescription)
                 }

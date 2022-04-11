@@ -113,7 +113,6 @@ private extension  LoginViewController {
             }
         }
     }
-    
 
     /// Initializes and configures components in controller.
     func setUpViews() {
@@ -126,7 +125,6 @@ private extension  LoginViewController {
         setUpActivityIndicator()
         addTapGesture()
     }
-    
     
     /// Binds controller user events to view model.
     func setUpBinding() {
@@ -190,8 +188,6 @@ private extension  LoginViewController {
             .top(equalTo: passwordTextField.bottomAnchor, constant: 24)
             .height(greaterThanOrEqualTo: AppConstants.appleMinimimWidthHeight)
             .bottom(equalTo: containerView)
-            // Apple recomends 44 design uses 40
-            // find out which height to use
         
         loginButton.rx.tap.subscribe(onNext: { [unowned self] _ in
             guard input.isValidInput else {

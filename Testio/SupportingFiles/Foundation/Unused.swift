@@ -14,6 +14,7 @@ private var loginViewController: LoginViewController = {
     let coordinator = LoginCoordinator(navigationController: UINavigationController(), configurator: configurator)
     let loginViewModel = LoginViewModel(coordinator: coordinator, configurator: configurator)
     let loginViewController = LoginViewController(viewModel: loginViewModel)
+    return loginViewController
 }()
 
 private func callUnused(run: Bool) {

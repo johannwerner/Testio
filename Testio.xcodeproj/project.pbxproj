@@ -14,6 +14,7 @@
 		9306F57027EA0749003B6CDC /* Decodable+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306F56F27EA0749003B6CDC /* Decodable+Utils.swift */; };
 		93084CFA27F1C75000770FA2 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93084CF927F1C75000770FA2 /* TokenModel.swift */; };
 		9313CC4527ECA5D80096A6AD /* ServerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313CC4427ECA5D80096A6AD /* ServerHeaderView.swift */; };
+		9342AE9727FED3BE000D8195 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342AE9627FED3BE000D8195 /* NetworkLayer.swift */; };
 		935BF06B27EE020E002757BE /* TOComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 935BF06527EE020E002757BE /* TOComponents.framework */; };
 		935BF06C27EE020E002757BE /* TOComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 935BF06527EE020E002757BE /* TOComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		935BF07E27EE0225002757BE /* ComponentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935BF07227EE0225002757BE /* ComponentConstants.swift */; };
@@ -129,6 +130,7 @@
 		9306F56F27EA0749003B6CDC /* Decodable+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decodable+Utils.swift"; sourceTree = "<group>"; };
 		93084CF927F1C75000770FA2 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		9313CC4427ECA5D80096A6AD /* ServerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHeaderView.swift; sourceTree = "<group>"; };
+		9342AE9627FED3BE000D8195 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		935BEFFF27EDF0D3002757BE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		935BF06527EE020E002757BE /* TOComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TOComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		935BF07227EE0225002757BE /* ComponentConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentConstants.swift; sourceTree = "<group>"; };
@@ -235,9 +237,8 @@
 		9306F56327EA0538003B6CDC /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9342AE9327FED35D000D8195 /* Layers */,
 				93084CF827F1C73100770FA2 /* SharedModels */,
-				93DB8EF727EF863E0051A462 /* KeyChain */,
-				93DB8EC227EF63130051A462 /* CoreData */,
 				9306F56E27EA0690003B6CDC /* Foundation */,
 				93FC612227EB119D00ED5BF1 /* ColorTheme.swift */,
 				9306F56A27EA05E6003B6CDC /* ObservableType.swift */,
@@ -267,6 +268,24 @@
 				93084CF927F1C75000770FA2 /* TokenModel.swift */,
 			);
 			path = SharedModels;
+			sourceTree = "<group>";
+		};
+		9342AE9327FED35D000D8195 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				9342AE9427FED37A000D8195 /* Network */,
+				93DB8EC227EF63130051A462 /* CoreData */,
+				93DB8EF727EF863E0051A462 /* KeyChain */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		9342AE9427FED37A000D8195 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9342AE9627FED3BE000D8195 /* NetworkLayer.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		935BF06627EE020E002757BE /* TOComponents */ = {
@@ -756,6 +775,7 @@
 				9306F56D27EA068D003B6CDC /* String+App.swift in Sources */,
 				93FC623E27EC5B9A00ED5BF1 /* ServerListViewController.swift in Sources */,
 				93982F0E27E9FFD900782E86 /* LoginCoordinator.swift in Sources */,
+				9342AE9727FED3BE000D8195 /* NetworkLayer.swift in Sources */,
 				93FC7FB827F04378005E89BF /* IntroductionViewController.swift in Sources */,
 				93DB8EFC27EF8B1C0051A462 /* MainCoordinator.swift in Sources */,
 				93DB8EF527EF855A0051A462 /* CoreDataConstants.swift in Sources */,

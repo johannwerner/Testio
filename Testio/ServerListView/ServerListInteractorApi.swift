@@ -23,15 +23,6 @@ extension ServerListInteractorApi {
     }
     
     func fetchServersFromApi(input: TokenModel) -> Observable<Async<Any>> {
-        RxAlamofire
-            .requestJSON(
-                .get,
-                AppConstants.serverUrl,
-                headers: input.headers
-            )
-            .flatMap { _, json -> Observable<Any> in
-                Observable.just(json)
-            }
-            .async()
+        NetworkLayer.fetchServers(input: input)
     }
 }

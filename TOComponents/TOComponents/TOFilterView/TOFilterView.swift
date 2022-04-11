@@ -90,6 +90,7 @@ extension TOFilterView: UITableViewDataSource {
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
         cell.textLabel?.numberOfLines = 1
         cell.textLabel?.textColor = isSelected ? .systemBlue: .black
+        cell.selectionStyle = isSelected ? .none: .default
         // make cell divider go till the end of the cell
         cell.separatorInset  = .zero
         // above causes offset of title which should be reversed by next two lines
