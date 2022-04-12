@@ -7,6 +7,11 @@ extension String {
     }
 }
 
+extension Optional where Wrapped == String {
+    /// wrappedValue returns the string or if nil returns empty string ""
+    var wrappedValue: String { self ?? "" }
+}
+
 private extension String {
     /// tableName is Localizable,
     /// missing string will be displayed when no value exists.

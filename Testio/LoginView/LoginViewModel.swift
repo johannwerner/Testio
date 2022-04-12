@@ -70,13 +70,13 @@ private extension LoginViewModel {
     }
     
     func handleResponse(input: LoginInputModel, model: TokenModel) {
-        UserDefaultsProvider.username = input.username ?? ""
+        UserDefaultsProvider.username = input.username.wrappedValue
         let credentials = Credentials(
-            username: input.username ?? "",
-            token: input.password ?? ""
+            username: input.username.wrappedValue,
+            token: input.password.wrappedValue
         )
         let tokenCredentials = Credentials(
-            username: input.username ?? "",
+            username: input.username.wrappedValue,
             token: model.token
         )
         token = model.token
@@ -106,7 +106,7 @@ private extension LoginViewModel {
                     viewEffect.accept(.success)
                     coordinator.showServerList(
                         servers: servers,
-                        token: token ?? "",
+                        token: token.wrappedValue,
                         animated: true
                     )
                 }

@@ -1,6 +1,5 @@
 import Foundation
 
-// swiftlint:disable discouraged_optional_collection
 final class AttributedStringProvider {
     private init() {}
     // MARK: - Properties
@@ -27,8 +26,8 @@ extension AttributedStringProvider {
     ///   - attributesForCustom: required for custom tag
     static func convertStringToAttributedString(
         _ stringWithTags: String,
-        attributesForBold: [NSAttributedString.Key: Any]? = nil,
-        attributesForCustom: [NSAttributedString.Key: Any]? = nil
+        attributesForBold: [NSAttributedString.Key: Any] = [:],
+        attributesForCustom: [NSAttributedString.Key: Any] = [:]
     ) -> NSMutableAttributedString {
         handleAllTags(
             stringWithTags: stringWithTags,
@@ -42,8 +41,8 @@ extension AttributedStringProvider {
 private extension AttributedStringProvider {
     static func handleAllTags(
         stringWithTags: String,
-        attributesForBold: [NSAttributedString.Key: Any]?,
-        attributesForCustom: [NSAttributedString.Key: Any]?
+        attributesForBold: [NSAttributedString.Key: Any],
+        attributesForCustom: [NSAttributedString.Key: Any]
     ) -> NSMutableAttributedString {
         var attributedString = NSMutableAttributedString(string: stringWithTags)
         supportedTags[boldTag] = attributesForBold

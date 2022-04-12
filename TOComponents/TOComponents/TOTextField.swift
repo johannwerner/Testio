@@ -105,8 +105,7 @@ private extension TOTextField {
         guard let icon = icon else {
             leftViewMode = .never
             leftView = nil
-            Logger.logError("image is nil")
-            return
+            return Logger.logError("image is nil")
         }
         let view = UIView(frame: CGRect(x: 0, y: 0, width: iconSize + iconRightPadding, height: iconSize))
         leftViewMode = .always

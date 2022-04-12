@@ -37,8 +37,8 @@ struct LoginInputModel {
     
     var parameters: [String: Any] {
         [
-            "username": username ?? "",
-            "password": password ?? ""
+            "username": username.wrappedValue,
+            "password": password.wrappedValue
         ]
     }
     

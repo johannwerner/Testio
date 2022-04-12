@@ -17,6 +17,7 @@ enum ServerListEffect {
 /// View action enum for  ServiceListView.
 enum ServerListViewAction {
     case logoutButtonPressed
+    case sortByOriginal
     case sortByDistancePressed
     case sortByAlphabetPressed
 }
@@ -24,7 +25,7 @@ enum ServerListViewAction {
 struct ServerListModel {
     var servers: [Server]
     var token: String
-    var sort: ServerListSort = .distance
+    var sort: ServerListSort = .original
     var fetchFromCache: Bool
 }
 
@@ -39,4 +40,5 @@ struct ServerConstants {
 enum ServerListSort {
     case distance
     case alphabetical
+    case original
 }

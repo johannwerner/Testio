@@ -20,14 +20,15 @@ final class ServerListViewModel {
 
     private var servers: [Server] = []
     private var serversByDistance: [Server] {
-        servers.sorted { $0.distanceNonNil < $1.distanceNonNil }
+        servers.sorted { $0.distanceWrappedMax < $1.distanceWrappedMax }
     }
     private var serversByAlphabet: [Server] {
-        servers.sorted { $0.nameNonNil < $1.nameNonNil }
+        servers.sorted { $0.name.wrappedValue < $1.name.wrappedValue }
     }
 
-    var distanceIndexPath = IndexPath(row: 0, section: 0)
-    var alphabetIndexPath = IndexPath(row: 1, section: 0)
+    var originalIndexPath = IndexPath(row: 0, section: 0)
+    var distanceIndexPath = IndexPath(row: 1, section: 0)
+    var alphabetIndexPath = IndexPath(row: 2, section: 0)
 
     // MARK: - Life cycle
     
@@ -61,6 +62,8 @@ extension ServerListViewModel {
             return distanceIndexPath
         case .alphabetical:
             return alphabetIndexPath
+        case .original:
+            return originalIndexPath
         }
     }
     
@@ -70,6 +73,8 @@ extension ServerListViewModel {
             return serversByDistance[indexPath.row]
         case .alphabetical:
             return serversByAlphabet[indexPath.row]
+        case .original:
+            return servers[indexPath.row]
         }
     }
     
@@ -84,6 +89,8 @@ extension ServerListViewModel {
                     sortByDistance()
                 case .sortByAlphabetPressed:
                     sortByAlphabet()
+                case .sortByOriginal:
+                    sortOriginal()
                 }
             })
             .disposed(by: disposeBag)
@@ -156,6 +163,11 @@ private extension ServerListViewModel {
     
     func sortByAlphabet() {
         model.sort = .alphabetical
+        viewEffect.accept(.success)
+    }
+    
+    func sortOriginal() {
+        model.sort = .original
         viewEffect.accept(.success)
     }
 }

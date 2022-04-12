@@ -131,7 +131,8 @@ private extension  ServerListViewController {
         setUpDoneButton()
         let filterItemByDistance = TOFilterItem(itemText: LocalizedKeys.byDistance)
         let filterItemByAlphabetical = TOFilterItem(itemText: LocalizedKeys.alphabetical)
-        let filterView = TOFilterView(items: [filterItemByDistance, filterItemByAlphabetical])
+        let filterItemOriginal = TOFilterItem(itemText: "Original")
+        let filterView = TOFilterView(items: [filterItemOriginal, filterItemByDistance, filterItemByAlphabetical])
         filterView.selectedIndexPath = viewModel.selectedFilterIndexPath
         view.wrap(view: filterView)
         filterView.showView()
@@ -160,10 +161,17 @@ private extension  ServerListViewController {
     }
    
     @objc func doneAction() {
-        if filterView?.selectedIndexPath == viewModel.distanceIndexPath {
+        guard let filterView = filterView else {
+            return Logger.logError("Filter view is nil")
+        }
+        switch filterView.selectedIndexPath {
+        case viewModel.originalIndexPath:
+            viewAction.accept(.sortByOriginal)
+        case viewModel.distanceIndexPath:
             viewAction.accept(.sortByDistancePressed)
-        } else {
+        case viewModel.alphabetIndexPath:
             viewAction.accept(.sortByAlphabetPressed)
+        default: Logger.logError("no more cases avialble")
         }
         setUpFilterButton()
         removeFilterView()

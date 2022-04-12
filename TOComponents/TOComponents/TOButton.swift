@@ -34,6 +34,7 @@ private extension TOButton {
         addTarget(self, action: #selector(normalState), for: .touchDragInside)
         backgroundColor = normalBackgroundColor
     }
+    
     @objc func highlight() {
         backgroundColor = normalBackgroundColor
     }

@@ -10,11 +10,8 @@ struct Server: Codable {
     var name: String?
     var distance: Int?
     
-    var distanceNonNil: Int {
+    /// distanceWrappedMax gives the value of distance or if nil gives Int Max value
+    var distanceWrappedMax: Int {
         distance ?? Int.max
-    }
-    
-    var nameNonNil: String {
-        name ?? ""
     }
 }
