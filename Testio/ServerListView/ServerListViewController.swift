@@ -131,7 +131,7 @@ private extension  ServerListViewController {
         setUpDoneButton()
         let filterItemByDistance = TOFilterItem(itemText: LocalizedKeys.byDistance)
         let filterItemByAlphabetical = TOFilterItem(itemText: LocalizedKeys.alphabetical)
-        let filterItemOriginal = TOFilterItem(itemText: "Original")
+        let filterItemOriginal = TOFilterItem(itemText: LocalizedKeys.original)
         let filterView = TOFilterView(items: [filterItemOriginal, filterItemByDistance, filterItemByAlphabetical])
         filterView.selectedIndexPath = viewModel.selectedFilterIndexPath
         view.wrap(view: filterView)

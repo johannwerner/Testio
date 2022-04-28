@@ -47,4 +47,5 @@ final class LocalizedKeys {
     static let enterUsernamePassword = "enter_username_password".localizedString()
     static let introductionButton = "introduction_view_primary_button".localizedString()
     static let introductionSubtitleText = "introduction_view_subtitle_text".localizedString()
+    static let original = "original".localizedString()
 }

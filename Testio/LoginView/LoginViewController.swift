@@ -202,7 +202,6 @@ private extension  LoginViewController {
     func setUpActivityIndicator() {
         view.add(subview: activityIndicator)
             .center(inside: view)
-
         activityIndicator.color = ColorTheme.activityIndicatorColor
     }
     
