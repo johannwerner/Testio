@@ -19,7 +19,6 @@ private var loginViewController: LoginViewController = {
 
 private func callUnused(run: Bool) {
     // False Positives
-    unused(UserDefaultsProperty(userDefaultsKey: "", initalValue: "").wrappedValue)
     unused(loginViewController.textFieldShouldReturn(UITextField()))
     loginViewController.textFieldDidEndEditing(UITextField())
     loginViewController.textFieldDidBeginEditing(UITextField())
