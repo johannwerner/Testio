@@ -29,10 +29,6 @@ private extension AppDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()
         self.window = window
-        var text: String?
-        if text?.isEmpty == true {
-            
-        }
         window.rootViewController = navigationController
     }
           
