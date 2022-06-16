@@ -72,5 +72,6 @@ private extension TOActivityIndicator {
             .bottom(equalTo: self)
         label.textColor = .black
         label.text = text
+        label.isAccessibilityElement = false
     }
 }

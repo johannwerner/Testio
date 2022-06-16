@@ -32,23 +32,17 @@ struct LoginConstants {
 }
 
 struct LoginInputModel {
-    var username: String?
-    var password: String?
+    var username: String
+    var password: String
     
     var parameters: [String: Any] {
         [
-            "username": username.wrappedValue,
-            "password": password.wrappedValue
+            "username": username,
+            "password": password
         ]
     }
     
     var isValidInput: Bool {
-        guard let username = username else {
-            return false
-        }
-        guard let password = password else {
-            return false
-        }
-        return !username.isEmpty && !password.isEmpty
+        !username.isEmpty && !password.isEmpty
     }
 }

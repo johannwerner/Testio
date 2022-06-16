@@ -9,7 +9,12 @@ extension String {
 
 extension Optional where Wrapped == String {
     /// wrappedValue returns the string or if nil returns empty string ""
-    var wrappedValue: String { self ?? "" }
+    var wrappedValue: String {
+        guard let self = self else {
+            return ""
+        }
+        return self
+    }
 }
 
 private extension String {

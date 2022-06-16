@@ -1,7 +1,6 @@
 @testable import Testio
 import XCTest
 
-
 class TestioTests: XCTestCase {
     let attributesForBold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
     let attributesForCustom = [NSAttributedString.Key.foregroundColor: UIColor.blue]

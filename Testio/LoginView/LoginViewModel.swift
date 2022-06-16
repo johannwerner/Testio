@@ -70,22 +70,30 @@ private extension LoginViewModel {
     }
     
     func handleResponse(input: LoginInputModel, model: TokenModel) {
-        UserDefaultsProvider.username = input.username.wrappedValue
-        let credentials = Credentials(
-            username: input.username.wrappedValue,
-            token: input.password.wrappedValue
-        )
-        let tokenCredentials = Credentials(
-            username: input.username.wrappedValue,
-            token: model.token
-        )
+        UserDefaultsProvider.username = input.username
         token = model.token
+        storeLoginToken(input: input, token: model.token)
+        storeLoginPassword(input: input)
+    }
+    
+    func storeLoginToken(input: LoginInputModel, token: String) {
+        let tokenCredentials = Credentials(
+            username: input.username,
+            token: token
+        )
         do {
             try KeychainProvider.storeGenericTokenFor(
                 credentials: tokenCredentials,
                 serviceType: KeychainProvider.serviceTypeLoginToken
             )
         } catch {}
+    }
+    
+    func storeLoginPassword(input: LoginInputModel) {
+        let credentials = Credentials(
+            username: input.username,
+            token: input.password
+        )
         do {
             try KeychainProvider.storeGenericTokenFor(
                 credentials: credentials,

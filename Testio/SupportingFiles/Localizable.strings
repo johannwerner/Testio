@@ -1,11 +1,3 @@
-/* 
- Localizable.strings
-  Testio
-
-  Created by Johann Werner on 23.03.22.
-  
-*/
-
 "username" = "Username";
 "password" = "Password";
 "log_in" = "Log in";

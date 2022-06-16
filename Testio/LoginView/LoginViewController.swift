@@ -51,8 +51,8 @@ final class LoginViewController: UIViewController {
     
     private var input: LoginInputModel {
         LoginInputModel(
-            username: usernameTextField.text,
-            password: passwordTextField.text
+            username: usernameTextField.text.wrappedValue,
+            password: passwordTextField.text.wrappedValue
         )
     }
 

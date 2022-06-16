@@ -1,23 +1,18 @@
-//
-//  Unused.swift
-//  Testio
-//
-//  Created by Johann Werner on 28.03.22.
 //  File not used and not added to target, just used to silence unused false postives and intended postives.
 #if DEBUG
-import Foundation
-import UIKit
+ import Foundation
+ import UIKit
 
-private var loginViewController: LoginViewController = {
+ private var loginViewController: LoginViewController = {
     let interactor = LoginInteractorApi()
     let configurator = LoginConfigurator(loginInteractor: interactor)
     let coordinator = LoginCoordinator(navigationController: UINavigationController(), configurator: configurator)
     let loginViewModel = LoginViewModel(coordinator: coordinator, configurator: configurator)
     let loginViewController = LoginViewController(viewModel: loginViewModel)
     return loginViewController
-}()
+ }()
 
-private func callUnused(run: Bool) {
+ private func callUnused(run: Bool) {
     // False Positives
     unused(loginViewController.textFieldShouldReturn(UITextField()))
     loginViewController.textFieldDidEndEditing(UITextField())
@@ -26,7 +21,7 @@ private func callUnused(run: Bool) {
     if run {
         callUnused(run: false)
     }
-}
+ }
 
-public func unused(_ items: Any) {}
+ public func unused(_ items: Any) {}
 #endif

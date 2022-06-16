@@ -1,5 +1,16 @@
 # Testio MVP Read Me
 
+## First Feedback
+
+Good project folder structure, simple and clear code separation;
+* No leftovers or boilerplate, dead code, etc;
+* UI was recreated accurately;
+* MVVM+C architecture with interactors, but interactors do API calls instead of making interaction between UI and ViewModel;
+* Lack encapsulation for some code parts;
+* Repetitive code for API requests.
+* Not so good to have singletons for Persistent or Keychain layers;
+* Nice to have unit tests, but it actually isn't testing existing code.
+
 
 ## Not a perfect solution
 Due to the limited amount of time I can spend on this and the fact that I did not consult with any other ios developer on this project, there is lots of room for improvement and feedback. 
@@ -71,3 +82,5 @@ Due to the fact that I did not have a device with FaceID I was unable to test Fa
 ## Test Login details
 username: tesonet
 password: partyanimal
+
+
